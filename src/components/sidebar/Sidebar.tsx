@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import { sidebarlinks } from "../../types/types";
 import { useParams } from "react-router";
 
-function Sidebar({ open, setOpen }: { readonly open: boolean; readonly setOpen: Function }) {
+function Sidebar({
+  open,
+  setOpen,
+}: {
+  readonly open: boolean;
+  readonly setOpen: Function;
+}) {
   const [sidebarLinks, setSidebarLinks] = useState<sidebarlinks[]>([]);
   const params = useParams();
   const { student, teacher, admin } = sidebarLinksData;
@@ -48,14 +54,6 @@ function Sidebar({ open, setOpen }: { readonly open: boolean; readonly setOpen: 
             ))}
           </ul>
         </nav>
-
-        <div className=" p-8">
-          <h1 className="text-2xl font-bold">Main Content Area</h1>
-          <p>
-            This is where the main content goes. The sidebar will overlay this
-            content when open.
-          </p>
-        </div>
       </div>
     </div>
   );

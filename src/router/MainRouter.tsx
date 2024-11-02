@@ -13,7 +13,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "about",
-            element: <div>About</div>,
+            element: <div className="w-full bg-red-900">About</div>,
           },
         ],
       },
