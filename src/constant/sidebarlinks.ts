@@ -1,14 +1,36 @@
+import { Children } from "react";
+
 const sidebarLinksData = {
   student: [
     {
       name: "Dashboard",
       link: "/student/dashboard",
       icon: "dashboard",
+      children: [
+        {
+          name: "Dashboard",
+          link: "/student/dashboard",
+        },
+        {
+          name: "Dashboard 2",
+          link: "/student/dashboard-2",
+        },
+      ],
     },
     {
       name: "Profile",
       link: "/student/profile",
       icon: "user",
+      children:[
+        {
+          name: "Profile",
+          link: "/student/profile",
+        },
+        {
+          name: "Profile 2",
+          link: "/student/profile-2",
+        },
+      ]
     },
     {
       name: "Courses",
@@ -42,6 +64,16 @@ const sidebarLinksData = {
       name: "Settings",
       link: "/teacher/settings",
       icon: "settings",
+      children:[
+        {
+          name: "Settings",
+          link: "/teacher/settings",
+        },
+        {
+          name: "Settings 2",
+          link: "/teacher/settings-2",
+        },
+      ]
     },
     {
       name: "Create Course",
