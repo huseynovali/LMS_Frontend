@@ -15,7 +15,7 @@ function Sidebar({
   const [sidebarLinks, setSidebarLinks] = useState<sidebarlinks[]>([]);
   const params = useParams();
   const { student, teacher, admin } = sidebarLinksData;
-
+  const [toggle, setToggle] = useState<string | null>(null);
   useEffect(() => {
     if (params.role === "student") {
       setSidebarLinks(student);
@@ -46,18 +46,58 @@ function Sidebar({
           <div className="w-full flex justify-center">
             <img src={Logo} alt="" />
           </div>
-          <ul className="p-4">
+          <ul>
             {sidebarLinks.map((link) => (
               <li key={link.name} className="my-4">
-                <a
-                  href={link.link}
-                  className=" px-4 py-2 text-[#667797] hover:bg-red-500 rounded flex items-center justify-between"
-                >
-                  <span className="text-[1rem]">{link.name}</span>
-                  {link.children && (
-                    <FaChevronRight className="text-[14px] font-light" />
-                  )}
-                </a>
+                {link.children ? (
+                  <div>
+                    <button
+                      onClick={() =>
+                        setToggle((toggle) => (toggle ? "" : link.name))
+                      }
+                      className=" px-4 py-2 text-[#667797] hover:bg-[#3E80F9] hover:bg-opacity-30 hover:text-[#3E80F9] rounded w-full flex items-center justify-between"
+                    >
+                      <div className="flex items-center">
+                        <span className="mr-2">{link.icon}</span>
+                        <span className="text-[1rem]">{link.name}</span>
+                      </div>
+                      {toggle === link.name ? (
+                        <FaChevronRight className="text-[14px] font-light transform rotate-90" />
+                      ) : (
+                        <FaChevronRight className="text-[14px] font-light" />
+                      )}
+                    </button>
+                    <div>
+                      <ul
+                        className={`${
+                          toggle === link.name
+                            ? "max-h-40 opacity-100"
+                            : "max-h-0 opacity-0"
+                        } transition-all duration-500 overflow-hidden w-full`}
+                      >
+                        {link.children.map((child) => (
+                          <li key={child.name} >
+                            <a
+                              href={child.link}
+                              className=" px-4 py-2 text-[#667797]  rounded flex items-center hover:text-[#3E80F9]"
+                            >
+                              <span className="mr-2">{child.icon}</span>
+                              <span className="text-[1rem]">{child.name}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    href={link?.link}
+                    className=" px-4 py-2 text-[#667797] hover:bg-[#3E80F9] hover:bg-opacity-30 hover:text-[#3E80F9] rounded  flex items-center "
+                  >
+                    <span className="mr-2">{link.icon}</span>
+                    <span className="text-[1rem]">{link.name}</span>
+                  </a>
+                )}
               </li>
             ))}
           </ul>
