@@ -1,4 +1,4 @@
-const navbarLinks = {
+const sidebarLinksData = {
   student: [
     {
       name: "Dashboard",
@@ -94,4 +94,4 @@ const navbarLinks = {
   ],
 };
 
-export default navbarLinks;
+export default sidebarLinksData;
