@@ -62,7 +62,7 @@ function Profile() {
             <ul>
               <li>
                 <Link
-                  to="/student/profile"
+                  to="/student/profile/aboutme"
                   className="flex items-center gap-x-2 py-3 px-5"
                 >
                   <BsGear size={20} className="text-[#487FFF]" />
