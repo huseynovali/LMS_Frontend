@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
 import Account from "../pages/Account";
+import AboutMe from "../components/profile/AboutMe";
+import MyPayments from "../components/profile/MyPayments";
 
 const router = createBrowserRouter([
   {
@@ -22,11 +24,11 @@ const router = createBrowserRouter([
             children: [
               {
                 path:"aboutme",
-                element: <div className="w-full bg-red-900">About Me</div>,
+                element: <AboutMe/>
               },
               {
                 path:"payment",
-                element: <div className="w-full bg-red-900">Payment</div>,
+                element: <MyPayments/>,
               },
             ]
           }

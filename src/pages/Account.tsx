@@ -24,7 +24,7 @@ function Account() {
       <div className="rounded-lg">
         <div className="header w-full">
           <img src={cover} alt="" className="w-full h-[150px]" />
-          <div className="realtive bg-white px-6 ">
+          <div className="realtive bg-white px-6 rounded-b-lg">
             <div className="flex flex-wrap gap-x-6">
               <div className="relative -top-10 bg-[#667797] rounded-full w-[120px] h-[120px] shrink-0 flex items-center justify-center text-white border-[5px] border-white">
                 <span className="text-xl font-semibold">
@@ -81,7 +81,7 @@ function Account() {
         </div>
       </div>
 
-      <div>
+      <div className="mt-6">
         <Outlet />
       </div>
     </div>
