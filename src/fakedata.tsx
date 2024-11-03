@@ -32,5 +32,6 @@ export const accoundData = {
   email: "johndoe@gmail.com",
   phone: "+1234567890",
   address: "1234 North Street, New York",
-  image:null
+  image:null,
+  joinDate: "12-12-2021",
 };

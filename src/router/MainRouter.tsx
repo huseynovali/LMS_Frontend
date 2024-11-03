@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
+import Account from "../pages/Account";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
           },
           {
             path:"profile",
-            element: <div className="w-full bg-red-900">Profile</div>,
+            element: <Account />
           }
         ],
       },
