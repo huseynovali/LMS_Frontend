@@ -26,7 +26,9 @@ export const notificationData = [
 ];
 
 export const accoundData = {
-  name: "John Doe",
+  name: "John",
+  surname: "Doe",
+  fatherName: "Doe",
   email: "johndoe@gmail.com",
   phone: "+1234567890",
   address: "1234 North Street, New York",

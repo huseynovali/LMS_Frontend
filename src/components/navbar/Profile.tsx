@@ -31,7 +31,7 @@ function Profile() {
         className="border border-[#7585A5] rounded-full flex items-center gap-x-3 p-1 pr-10 cursor-pointer relative"
       >
         <div className="bg-[#667797] rounded-full w-8 h-8 flex items-center justify-center text-white">
-          <p className="text-xs">JD</p>
+          <p className="text-xs"> {accoundData.name[0] + accoundData.surname[0]}</p>
         </div>
 
         <MdKeyboardArrowDown size={20} className="absolute top-1/4 right-2" />
@@ -40,18 +40,18 @@ function Profile() {
         <div className="absolute mt-2 bg-white border border-[#D5DBE7] rounded-lg shadow-md p-5 w-[300px] -left-[calc(100%_+_150px)] top-[calc(100%_+_10px)]">
           <div className="flex gap-x-2 border-b border-[#dee2e6] pb-5 mb-5">
             <div>
-            {accoundData?.image === null ? (
-              <div className="bg-[#667797] rounded-full w-12 h-12 shrink-0 flex items-center justify-center text-white">
-                {accoundData.name.split(" ")[0][0] +
-                  accoundData.name.split(" ")[1][0]}
-              </div>
-            ) : (
-              <img
-                src={accoundData.image}
-                alt="profile"
-                className="w-12 h-12 rounded-full"
-              />
-            )}</div>
+              {accoundData?.image === null ? (
+                <div className="bg-[#667797] rounded-full w-12 h-12 shrink-0 flex items-center justify-center text-white">
+                  {accoundData.name[0] + accoundData.surname[0]}
+                </div>
+              ) : (
+                <img
+                  src={accoundData.image}
+                  alt="profile"
+                  className="w-12 h-12 rounded-full"
+                />
+              )}
+            </div>
             <div>
               <p className="text-lg font-semibold">{accoundData.name}</p>
               <p className="text-[#7585A5] text-sm">{accoundData.email}</p>
@@ -60,17 +60,24 @@ function Profile() {
 
           <div>
             <ul>
-              <li >
-                <Link to="/profile" className="flex items-center gap-x-2 py-3 px-5">
-                <BsGear size={20} className="text-[#487FFF]" />
-                <p className="text-[15px] font-medium text-[#667797]">Accound Setting</p>
+              <li>
+                <Link
+                  to="/student/profile"
+                  className="flex items-center gap-x-2 py-3 px-5"
+                >
+                  <BsGear size={20} className="text-[#487FFF]" />
+                  <p className="text-[15px] font-medium text-[#667797]">
+                    Accound Setting
+                  </p>
                 </Link>
               </li>
-              
-              <li >
+
+              <li>
                 <button className="flex items-center gap-x-2 py-3 px-5">
-                <RiLogoutBoxLine size={20}  className="text-[#487FFF]" />
-                <p className="text-[15px] font-medium text-[#667797]">Logout</p>
+                  <RiLogoutBoxLine size={20} className="text-[#487FFF]" />
+                  <p className="text-[15px] font-medium text-[#667797]">
+                    Logout
+                  </p>
                 </button>
               </li>
             </ul>

@@ -4,6 +4,7 @@ import { sidebarlinks } from "../../types/types";
 import { useParams } from "react-router";
 import Logo from "../../assets/logo.png";
 import { FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Sidebar({
   open,
@@ -43,9 +44,9 @@ function Sidebar({
             open ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out w-64 lg:translate-x-0 lg:relative h-screen p-5`}
         >
-          <div className="w-full flex justify-center">
+          <Link to={`/${params.role}`} className="w-full flex justify-center">
             <img src={Logo} alt="" />
-          </div>
+          </Link>
           <ul>
             {sidebarLinks.map((link) => (
               <li key={link.name} className="my-4">

@@ -15,6 +15,10 @@ const router = createBrowserRouter([
             path: "about",
             element: <div className="w-full bg-red-900">About</div>,
           },
+          {
+            path:"profile",
+            element: <div className="w-full bg-red-900">Profile</div>,
+          }
         ],
       },
     ],

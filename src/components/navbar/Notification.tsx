@@ -34,7 +34,7 @@ function Notification() {
           <div className="absolute w-3 h-3 bg-red-500 rounded-full top-1 right-1 ">
             <div className="relative rounded-full w-3 h-3 bg-red-500 animate-ping"></div>
           </div>
-        )}
+        )} 
         <FaRegBell size={20} />
       </button>
       {notificationBox && notification && (

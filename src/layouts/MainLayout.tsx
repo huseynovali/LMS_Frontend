@@ -10,7 +10,10 @@ function MainLayout() {
       <Sidebar open={open} setOpen={setOpen} />
       <div className="w-full">
         <Navbar open={open} setOpen={setOpen} />
-        <Outlet />
+        <div className="p-4 lg:p-6 bg-[#ECF2FE] min-h-screen">
+           <Outlet />
+        </div>
+       
       </div>
     </div>
   );
