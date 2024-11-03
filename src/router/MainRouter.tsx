@@ -5,6 +5,7 @@ import Account from "../pages/Account";
 import AboutMe from "../components/profile/AboutMe";
 import MyPayments from "../components/profile/MyPayments";
 import EditPassword from "../components/profile/EditPassword";
+import Courses from "../pages/Courses";
 
 const router = createBrowserRouter([
   {
@@ -30,9 +31,14 @@ const router = createBrowserRouter([
               {
                 path: "editpassword",
                 element: <EditPassword />,
-              }
+              },
+           
             ],
           },
+          {
+            path: "courses",
+            element: <Courses />,
+          }
         ],
       },
     ],

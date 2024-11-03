@@ -39,7 +39,6 @@ export const accoundData = {
   faculty: "Computer Science",
 };
 
-
 export const studentPaymentData = [
   {
     id: 1,
@@ -211,3 +210,45 @@ export const studentPaymentData = [
   },
 ];
 
+export const studentCourseData = [
+  {
+    id: 1,
+    name: "Riyaziyyat",
+    teacher: "John Doe",
+    date: "2-4-6",
+    time: "10:00 - 12:00",
+  },
+  {
+    id: 2,
+    name: "İngilis dili",
+    teacher: "Jane Smith",
+    date: "1-3-5",
+    time: "09:00 - 11:00",
+  },
+  {
+    id: 3,
+    name: "Məntiq",
+    teacher: "Robert Brown",
+    date: "2-4",
+    time: "11:00 - 13:00",
+  },
+  {
+    id: 4,
+    name: "Azərbaycan dili",
+    teacher: "Leyla Aliyeva",
+    date: "1-3-5",
+    time: "12:00 - 14:00",
+  },
+  {
+    name: "Fizika",
+    teacher: "Michael Johnson",
+    date: "2-4-6",
+    time: "13:00 - 15:00",
+  },
+  {
+    name: "Kimya",
+    teacher: "Anna White",
+    date: "1-3-5",
+    time: "14:00 - 16:00",
+  },
+];
