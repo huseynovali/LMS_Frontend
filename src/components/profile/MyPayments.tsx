@@ -32,21 +32,21 @@ function MyPayments() {
   };
 
   return (
-    <div className="bg-white rounded-lg p-4">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <div className="bg-white rounded-lg p-4 overflow-auto">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-auto">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
           <tr className="rounded-lg">
             <th scope="col" className="px-6 py-3">
-              Tarix :
+              Tarix 
             </th>
             <th scope="col" className="px-6 py-3">
-              Ödənişi alan :
+              Ödənişi alan 
             </th>
             <th scope="col" className="px-6 py-3">
-              Ödəniş :
+              Ödəniş 
             </th>
             <th scope="col" className="px-6 py-3">
-              Ödəndi :
+              Ödəndi 
             </th>
           </tr>
         </thead>

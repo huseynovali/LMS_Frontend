@@ -40,7 +40,7 @@ function Profile() {
         <MdKeyboardArrowDown size={20} className="absolute top-1/4 right-2" />
       </button>
       {profileOpen && (
-        <div className="absolute mt-2 bg-white border border-[#D5DBE7] rounded-lg shadow-md p-5 w-[300px] -left-[calc(100%_+_150px)] top-[calc(100%_+_10px)]">
+        <div className="absolute mt-2 z-50 bg-white border border-[#D5DBE7] rounded-lg shadow-md p-5 w-[300px] -left-[calc(100%_+_150px)] top-[calc(100%_+_10px)]">
           <div className="flex gap-x-2 border-b border-[#dee2e6] pb-5 mb-5">
             <div>
               {accoundData?.image === null ? (

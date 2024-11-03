@@ -6,6 +6,7 @@ import AboutMe from "../components/profile/AboutMe";
 import MyPayments from "../components/profile/MyPayments";
 import EditPassword from "../components/profile/EditPassword";
 import Courses from "../pages/Courses";
+import CourseDetail from "../pages/CourseDetail";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
           {
             path: "courses",
             element: <Courses />,
+          },
+          {
+            path: "courses/:id",
+            element: <CourseDetail />,
           }
         ],
       },

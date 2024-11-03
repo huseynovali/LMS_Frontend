@@ -49,7 +49,7 @@ function Account() {
                 </span>
               </div>
 
-              <div className="flex  relative -top-5 lg:top-0 justify-between items-center">
+              <div className="flex  relative  sm:top-0 lg:top-0 justify-between items-center">
                 <div>
                   <p className="text-2xl font-semibold">
                     {accoundData.name} {accoundData.surname}{" "}
@@ -79,7 +79,7 @@ function Account() {
                 </div>
               </div>
             </div>
-            <div className="px-3">
+            <div className="px-3 overflow-auto mt-5">
               <ul className="flex gap-x-4">
                 {role &&
                   tabs[role]?.map((tab) => (
