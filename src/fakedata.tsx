@@ -24,3 +24,11 @@ export const notificationData = [
     time: "2 hours ago",
   },
 ];
+
+export const accoundData = {
+  name: "John Doe",
+  email: "johndoe@gmail.com",
+  phone: "+1234567890",
+  address: "1234 North Street, New York",
+  image:null
+};
