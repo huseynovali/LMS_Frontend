@@ -1,22 +1,75 @@
-import { useParams } from "react-router";
+import { Outlet, useLocation, useParams } from "react-router";
 import { studentCourseData } from "../fakedata";
+import { Link } from "react-router-dom";
+
+const tabs = {
+  student: [
+    {
+      name: "Vesaitlər",
+      link: "resources",
+    },
+    {
+      name: "Qayıblar",
+      link: "absences",
+    },
+  ],
+  teacher: [
+    {
+      name: "Tələbələr",
+      link: "students",
+    },
+    {
+      name: "Vesaitlər",
+      link: "resources",
+    },
+  ],
+};
 
 function CourseDetail() {
-    const { id } = useParams();
-    
-    const course = studentCourseData.find((course) => course.id === id);
-console.log(course)
+  const { id } = useParams();
+  const { role } = useParams<{ role: keyof typeof tabs }>();
+  const course = studentCourseData.find((course) => course.id == id);
+  const location = useLocation();
+  const activetab =
+    location.pathname.split("/")[location.pathname.split("/").length - 1];
   return (
+    <div>
     <div className="w-full bg-white rounded-lg">
-        <div className="p-5">
-            <h1 className="text-2xl font-semibold">{course?.name}</h1>
-            <p className="text-[#7585A5]">{course?.teacher}</p>
-            <p className="text-[#7585A5]">{course?.date}</p>
-            <p className="text-[#7585A5]">{course?.time}</p>
+      <div className="p-5 flex justify-between">
+        <div>
+          <h1 className="text-2xl font-semibold my-2">{course?.name}</h1>
+          <p className="text-[#7585A5] my-2">{course?.teacher}</p>
         </div>
-
+        <div className="flex flex-col justify-center items-end">
+          <p className="text-[#7585A5] my-2">{course?.date}</p>
+          <p className="text-[#7585A5] my-2">{course?.time}</p>
+        </div>
+      </div>
+      <div className="px-3 overflow-auto mt-5">
+        <ul className="flex gap-x-4">
+          {role &&
+            tabs[role]?.map((tab) => (
+              <Link
+                to={`/${role}/courses/${id}/${tab.link}`}
+                key={tab.name}
+                className={`${
+                  activetab == tab.link ? "bg-[#ECF2FE] text-[#3e80f9]" : ""
+                } py-2 px-4  rounded-t-lg`}
+              >
+                {tab.name}
+              </Link>
+            ))}
+        </ul>
+      </div>
     </div>
-  )
+
+    <div>
+      <Outlet />
+    </div>
+    
+    
+    </div>
+  );
 }
 
-export default CourseDetail
+export default CourseDetail;

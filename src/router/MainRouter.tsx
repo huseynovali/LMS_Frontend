@@ -43,7 +43,18 @@ const router = createBrowserRouter([
           {
             path: "courses/:id",
             element: <CourseDetail />,
+            children: [
+              {
+                path: "resources",
+                element: <div>Resources</div>,
+              },
+              {
+                path: "absences",
+                element: <div>Absences</div>,
+              },
+            ],
           }
+         
         ],
       },
     ],
