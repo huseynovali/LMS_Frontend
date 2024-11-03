@@ -1,21 +1,38 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import cover from "../assets/cover.png";
 import { accoundData } from "../fakedata";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 
-const tabs = [
-  {
-    name: "Məlumatlarım",
-    link: "aboutme",
-  },
-  {
-    name: "Ödənişlər",
-    link: "payment",
-  },
-];
+const tabs = {
+  student: [
+    {
+      name: "Məlumatlarım",
+      link: "aboutme",
+    },
+    {
+      name: "Ödənişlər",
+      link: "payment",
+    },
+    {
+      name: "Şifrəni dəyiş",
+      link: "editpassword",
+    },
+  ],
+  teacher: [
+    {
+      name: "Məlumatlarım",
+      link: "aboutme",
+    },
+    {
+      name: "Şifrəni dəyiş",
+      link: "editpassword",
+    },
+  ],
+};
 
 function Account() {
+  const { role } = useParams<{ role: keyof typeof tabs }>();
   const location = useLocation();
   const activetab =
     location.pathname.split("/")[location.pathname.split("/").length - 1];
@@ -64,17 +81,20 @@ function Account() {
             </div>
             <div className="px-3">
               <ul className="flex gap-x-4">
-                {tabs.map((tab) => (
-                  <Link
-                    to={`/student/profile/${tab.link}`}
-                    key={tab.name}
-                    className={`${
-                      activetab == tab.link ? "bg-[#ECF2FE] text-[#3e80f9]" : ""
-                    } py-2 px-4  rounded-t-lg`}
-                  >
-                    {tab.name}
-                  </Link>
-                ))}
+                {role &&
+                  tabs[role]?.map((tab) => (
+                    <Link
+                      to={`/${role}/profile/${tab.link}`}
+                      key={tab.name}
+                      className={`${
+                        activetab == tab.link
+                          ? "bg-[#ECF2FE] text-[#3e80f9]"
+                          : ""
+                      } py-2 px-4  rounded-t-lg`}
+                    >
+                      {tab.name}
+                    </Link>
+                  ))}
               </ul>
             </div>
           </div>

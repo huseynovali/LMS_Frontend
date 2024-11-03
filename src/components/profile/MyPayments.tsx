@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { studentPaymentData } from "../../fakedata";
 import { FaAngleLeft, FaCheck, FaRegClock } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
+import { Navigate, useParams } from "react-router";
 
 function MyPayments() {
+  const { role } = useParams();
+
+  if (role !== "student") {
+    return <Navigate to={`/${role}`} />;
+  }
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
 

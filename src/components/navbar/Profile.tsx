@@ -3,12 +3,12 @@ import { MdKeyboardArrowDown, MdMoveDown } from "react-icons/md";
 import { accoundData } from "../../fakedata";
 import { BsGear } from "react-icons/bs";
 import { RiLogoutBoxLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Profile() {
   const [profileOpen, setProfileOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
-
+  const { role } = useParams();
   useEffect(() => {
     if (profileOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -31,7 +31,10 @@ function Profile() {
         className="border border-[#7585A5] rounded-full flex items-center gap-x-3 p-1 pr-10 cursor-pointer relative"
       >
         <div className="bg-[#667797] rounded-full w-8 h-8 flex items-center justify-center text-white">
-          <p className="text-xs"> {accoundData.name[0] + accoundData.surname[0]}</p>
+          <p className="text-xs">
+            {" "}
+            {accoundData.name[0] + accoundData.surname[0]}
+          </p>
         </div>
 
         <MdKeyboardArrowDown size={20} className="absolute top-1/4 right-2" />
@@ -62,7 +65,7 @@ function Profile() {
             <ul>
               <li>
                 <Link
-                  to="/student/profile/aboutme"
+                  to={`/${role}/profile/aboutme`}
                   className="flex items-center gap-x-2 py-3 px-5"
                 >
                   <BsGear size={20} className="text-[#487FFF]" />

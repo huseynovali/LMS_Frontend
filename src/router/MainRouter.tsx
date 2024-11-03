@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import Account from "../pages/Account";
 import AboutMe from "../components/profile/AboutMe";
 import MyPayments from "../components/profile/MyPayments";
+import EditPassword from "../components/profile/EditPassword";
 
 const router = createBrowserRouter([
   {
@@ -15,23 +16,23 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
           {
-            path: "about",
-            element: <div className="w-full bg-red-900">About</div>,
-          },
-          {
-            path:"profile",
+            path: "profile",
             element: <Account />,
             children: [
               {
-                path:"aboutme",
-                element: <AboutMe/>
+                path: "aboutme",
+                element: <AboutMe />,
               },
               {
-                path:"payment",
-                element: <MyPayments/>,
+                path: "payment",
+                element: <MyPayments />,
               },
-            ]
-          }
+              {
+                path: "editpassword",
+                element: <EditPassword />,
+              }
+            ],
+          },
         ],
       },
     ],

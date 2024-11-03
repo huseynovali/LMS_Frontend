@@ -49,7 +49,7 @@ function Notification() {
               onClick={() => setNotificationBox(false)}
             />
           </div>
-          <div className="p-6 h-[200px] overflow-auto">
+          <div className="p-6 h-[200px] overflow-auto bg-white">
             <ul>
               {notificationData.map((data) => (
                 <li
