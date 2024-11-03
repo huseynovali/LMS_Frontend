@@ -77,12 +77,11 @@ function Sidebar({
                         } transition-all duration-500 overflow-hidden w-full`}
                       >
                         {link.children.map((child) => (
-                          <li key={child.name} >
+                          <li key={child.name}>
                             <a
                               href={child.link}
                               className=" px-4 py-2 text-[#667797]  rounded flex items-center hover:text-[#3E80F9]"
                             >
-                              <span className="mr-2">{child.icon}</span>
                               <span className="text-[1rem]">{child.name}</span>
                             </a>
                           </li>

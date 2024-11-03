@@ -1,6 +1,6 @@
 export type sidebarlinks = {
   name: string;
-  link: string;
-  icon: string;
-  children?: sidebarlinks[];
+  icon: JSX.Element;
+  children?: { name: string; link: string }[];
+  link?: string;
 };
