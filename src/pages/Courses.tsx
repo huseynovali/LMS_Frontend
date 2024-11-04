@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { studentCourseData } from "../fakedata";
 
 function Courses() {
+  const { role } = useParams();
   return (
     <div className="w-full bg-white p-5 rounded-lg">
       <h1 className="text-2xl font-semibold">Dərslər</h1>
@@ -12,7 +13,7 @@ function Courses() {
               key={course.id}
               className="my-4  border border-[#D5DBE7] rounded-lg col-span-12 md:col-span-6 lg:col-span-4"
             >
-              <Link to={`/student/courses/${course.id}`} className="p-2">
+              <Link to={`/${role}/courses/${course.id}/resources`} className="p-2">
                 <div className="">
                   <div className="ml-4">
                     <h1 className="text-xl font-semibold">{course.name}</h1>

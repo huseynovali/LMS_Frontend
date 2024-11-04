@@ -9,6 +9,7 @@ import Courses from "../pages/Courses";
 import CourseDetail from "../pages/CourseDetail";
 import Resources from "../components/course/Resources";
 import Absences from "../components/course/Absences";
+import CoursesStudents from "../components/course/CoursesStudents";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
                 path: "absences",
                 element: <Absences/>,
               },
+              {
+                path: "students",
+                element: <CoursesStudents />,
+              }
             ],
           }
          
