@@ -63,7 +63,7 @@ function CourseDetail() {
       </div>
     </div>
 
-    <div>
+    <div className="w-full bg-white rounded-lg mt-6">
       <Outlet />
     </div>
     

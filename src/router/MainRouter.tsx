@@ -7,6 +7,8 @@ import MyPayments from "../components/profile/MyPayments";
 import EditPassword from "../components/profile/EditPassword";
 import Courses from "../pages/Courses";
 import CourseDetail from "../pages/CourseDetail";
+import Resources from "../components/course/Resources";
+import Absences from "../components/course/Absences";
 
 const router = createBrowserRouter([
   {
@@ -46,11 +48,11 @@ const router = createBrowserRouter([
             children: [
               {
                 path: "resources",
-                element: <div>Resources</div>,
+                element: <Resources />,
               },
               {
                 path: "absences",
-                element: <div>Absences</div>,
+                element: <Absences/>,
               },
             ],
           }
