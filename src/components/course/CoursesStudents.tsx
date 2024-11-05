@@ -24,9 +24,9 @@ function CoursesStudents() {
     <div className="p-4">
       <div className="flex justify-between">
         <h1 className="text-2xl font-semibold mb-4">Tələbələr</h1>
-        <AddAbsences  allDates ={allDates}/>
+        <AddAbsences allDates={allDates} />
       </div>
-      <div className="bg-white rounded-lg  overflow-auto mt-5">
+      <div className="bg-white rounded-lg overflow-auto mt-5">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-auto">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-lg">
             <tr className="rounded-lg">
@@ -56,14 +56,18 @@ function CoursesStudents() {
                     <td key={date} className="text-center">
                       <div
                         className={`w-12 h-8 text-center py-1 ${
-                          absence
-                            ? absence.absence
-                              ? "bg-red-500"
-                              : "bg-green-500"
+                          absence?.absence === true
+                            ? "bg-red-400"
+                            : absence?.absence === false
+                            ? "bg-green-400"
                             : "bg-gray-300"
                         } text-white rounded-lg mx-auto`}
                       >
-                        {absence ? (absence.absence ? "i/e" : "q/b") : "-"}
+                        {absence?.absence === true
+                          ? "i/e"
+                          : absence?.absence === false
+                          ? "q/b"
+                          : "-"}
                       </div>
                     </td>
                   );
@@ -78,6 +82,7 @@ function CoursesStudents() {
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
             disabled={currentPage === 0}
             className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg disabled:opacity-50"
+            aria-label="Önceki Sayfa"
           >
             <FaAngleLeft />
           </button>
@@ -90,6 +95,7 @@ function CoursesStudents() {
             }
             disabled={currentPage === totalPages - 1}
             className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg disabled:opacity-50"
+            aria-label="Sonraki Sayfa"
           >
             <FaAngleLeft style={{ transform: "rotate(180deg)" }} />
           </button>
