@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MdClose } from "react-icons/md";
 import { coursesStudents } from "../../fakedata";
+import { useParams } from "react-router";
 interface Absence {
   studentId: number;
   date: string;
@@ -9,7 +10,7 @@ interface Absence {
 function AddAbsences({ allDates }: { allDates: string[] }) {
   const [showModal, setShowModal] = useState(false);
   const [absences, setAbsences] = useState<Absence[]>([]);
-
+  const {id} = useParams()
   const today = new Date().toLocaleDateString("az-EN");
   const checkDate = allDates.includes(today);
   useEffect(() => {
@@ -33,7 +34,7 @@ function AddAbsences({ allDates }: { allDates: string[] }) {
   };
 
   const handleSubmit = () => {
-    console.log(absences);
+    console.log({qroupId:id,students:[...absences]});
     alert("Qayıblar təsdiqləndi!");
     setShowModal(false);
   };
@@ -50,7 +51,7 @@ function AddAbsences({ allDates }: { allDates: string[] }) {
       )}
 
       {showModal && (
-        <div className="absolute bg-gray-100 w-[500px] h-[500px] overflow-auto p-3 left-[40%] top-[20%] border rounded-lg shadow-2xl">
+        <div className="absolute bg-gray-100 lg:w-[500px] lg:h-[500px] overflow-auto p-3 lg:left-[40%] lg:top-[20%] inset-0 border rounded-lg shadow-2xl">
           <h1 className="text-center text-lg font-semibold p-2">
             Qayıb əlavə et
           </h1>
