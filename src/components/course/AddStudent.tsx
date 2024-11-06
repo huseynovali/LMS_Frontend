@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { allStudents, coursesStudents } from "../../fakedata";
 import { FaSearch } from "react-icons/fa";
 import useDebonce from "../../hooks/useDebonce";
 
 interface Student {
-    id: number;
-    name: string;
-    surname: string;
-    phone: string;
-    }
-
+  id: number;
+  name: string;
+  surname: string;
+  phone: string;
+}
 
 function AddStudent() {
   const [showModal, setShowModal] = useState(false);
@@ -18,6 +17,10 @@ function AddStudent() {
   const [searchStudent, setSearchStudent] = useState<Student[]>([]);
   const data = allStudents;
   const debonce = useDebonce(search, 500);
+
+  const addStudentFunc = (student: Student) => {
+    console.log(student);
+  };
 
   useEffect(() => {
     if (debonce) {
@@ -77,7 +80,10 @@ function AddStudent() {
                         <p>
                           {student?.name} {student?.surname} {student?.phone}
                         </p>
-                        <button className="bg-[#3e80f9] text-white px-2 py-1 rounded-md text-sm">
+                        <button
+                          className="bg-[#3e80f9] text-white px-2 py-1 rounded-md text-sm"
+                          onClick={() => addStudentFunc(student)}
+                        >
                           Əlavə et
                         </button>
                       </li>
