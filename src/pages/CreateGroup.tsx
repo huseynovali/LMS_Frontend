@@ -56,7 +56,7 @@ function CreateGroup() {
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Ad"
+                    placeholder="Qrupun Adı:"
                     className="mt-1 p-2 border rounded w-full"
                   />
                   <ErrorMessage

@@ -51,7 +51,7 @@ function Resources() {
       <div className="flex justify-between mb-5">
         <h2 className="text-2xl font-semibold mb-4">Vəsaitlər</h2>
 
-        {!file && role == "teacher" && (
+        {!file && role !== "student" && (
           <button className="bg-blue-500 text-white h-[30px] px-2 rounded hover:bg-blue-600 relative">
             <input
               type="file"
@@ -111,7 +111,7 @@ function Resources() {
                   Yüklə
                 </a>
               </td>
-              {role === "teacher" && (
+              {role !== "student" && (
                 <td className="py-2 px-4 border-b">
                   <button className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">
                     Sil

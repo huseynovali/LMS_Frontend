@@ -2,11 +2,15 @@ import { useState } from "react";
 import { coursesStudents } from "../../fakedata";
 import { FaAngleLeft } from "react-icons/fa";
 import AddAbsences from "./AddAbsences";
+import { useParams } from "react-router";
+import AddStudent from "./AddStudent";
+import RemoveStudent from "./RemoveStudent";
 
 function CoursesStudents() {
   const datesPerPage = 5;
   const [currentPage, setCurrentPage] = useState(0);
-
+  const { role } = useParams<{ role: string }>();
+  const [checkedStudent, setCheckedStudent] = useState<number | null>(null);
   const allDates = Array.from(
     new Set(
       coursesStudents.flatMap((student) => student.absences.map((a) => a.date))
@@ -24,7 +28,9 @@ function CoursesStudents() {
     <div className="p-4">
       <div className="flex justify-between">
         <h1 className="text-2xl font-semibold mb-4">Tələbələr</h1>
-        <AddAbsences allDates={allDates} />
+        {role == "teacher" && <AddAbsences allDates={allDates} />}
+        {role == "admin" && checkedStudent == null && <AddStudent />}
+        {role == "admin" && checkedStudent !== null && <RemoveStudent checkedStudent={checkedStudent} />}
       </div>
       <div className="bg-white rounded-lg overflow-auto mt-5">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-auto">
@@ -46,7 +52,29 @@ function CoursesStudents() {
                 key={student.name}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               >
-                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex">
+                  <div className="w-10 h-5"></div>
+                  <div className="absolute">
+                    {!checkedStudent && (
+                      <input
+                        type="checkbox"
+                        name=""
+                        id=""
+                        className="mr-2 h-[20px] w-[20px] "
+                        onChange={() => setCheckedStudent(student.id)}
+                      />
+                    )}
+                    {checkedStudent === student.id && (
+                      <input
+                        type="checkbox"
+                        name=""
+                        id=""
+                        className="mr-2 h-[20px] w-[20px] "
+                        onChange={() => setCheckedStudent(null)}
+                        checked
+                      />
+                    )}
+                  </div>
                   {student.name} {student.surname}
                 </td>
 
