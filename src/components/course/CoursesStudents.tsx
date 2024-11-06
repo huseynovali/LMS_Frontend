@@ -55,7 +55,7 @@ function CoursesStudents() {
             </tr>
           </thead>
           <tbody>
-            {coursesStudents.map((student) => (
+            {coursesStudents.sort().map((student) => (
               <tr
                 key={student.name}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
@@ -95,6 +95,7 @@ function CoursesStudents() {
                           onClick={() =>
                             changeAbsence(student.id, date, !absence?.absence)
                           }
+                          title="Davamiyyəti dəyiş"
                           className={`w-12 h-8 text-center py-1 ${
                             absence?.absence === true
                               ? "bg-red-400"
