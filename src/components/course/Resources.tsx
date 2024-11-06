@@ -93,7 +93,7 @@ function Resources() {
           <tr>
             <th className="py-2 px-4 border-b">Fayl Adı</th>
             <th className="py-2 px-4 border-b">Yerləşdirilmə Tarixi</th>
-            <th className="py-2 px-4 border-b">Yükləmə</th>
+            <th className="py-2 px-4 border-b">Yüklə</th>
             <th className="py-2 px-4 border-b"></th>
           </tr>
         </thead>

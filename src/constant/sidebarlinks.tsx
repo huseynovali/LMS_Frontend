@@ -102,6 +102,11 @@ const sidebarLinksData = {
       link: "/admin/teachers",
       icon: <FaUser size={24} />,
     },
+    {
+      name: "Create Group",
+      link: "/admin/create-group",
+      icon: <FaPlus size={24} />,
+    }
   ],
 };
 
