@@ -19,12 +19,12 @@ function Teachers() {
 
   const exportToCSV = () => {
     const headers = ["Ad", "Email", "Telefon", "Ünvan", "Qəbul Tarixi"];
-    const rows = data.map((student) => [
-      `${student.name} ${student.surname}`,
-      student.email,
-      student.phone,
-      student.address,
-      student.admissionDate,
+    const rows = data.map((teacher) => [
+      `${teacher.name} ${teacher.surname}`,
+      teacher.email,
+      teacher.phone,
+      teacher.address,
+      teacher?.joinDate,
     ]);
 
     let csvContent =
@@ -34,7 +34,7 @@ function Teachers() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "students.csv");
+    link.setAttribute("download", "teachers.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -50,7 +50,7 @@ function Teachers() {
       </button>
 
       <table
-        aria-label="List of students"
+        aria-label="List of teachers"
         className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
       >
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -74,21 +74,21 @@ function Teachers() {
           </tr>
         </thead>
         <tbody>
-          {datapaginate.map((student) => (
+          {datapaginate.map((teacher) => (
             <tr
-              key={student.id}
+              key={teacher.id}
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
             >
               <td className={cellClass}>
-                {student.name} {student.surname}
+                {teacher.name} {teacher.surname}
               </td>
-              <td className={cellClass}>{student.email}</td>
-              <td className={cellClass}>{student.phone}</td>
-              <td className={cellClass}>{student.address}</td>
-              <td className={cellClass}>{student.admissionDate}</td>
+              <td className={cellClass}>{teacher.email}</td>
+              <td className={cellClass}>{teacher.phone}</td>
+              <td className={cellClass}>{teacher.address}</td>
+              <td className={cellClass}>{teacher.joinDate}</td>
               <td className={cellClass}>
                 <Link
-                  to={`/admin/teacher/${student.id}`}
+                  to={`/admin/teacher/${teacher.id}`}
                   className="text-blue-500"
                 >
                   Daha ətraflı

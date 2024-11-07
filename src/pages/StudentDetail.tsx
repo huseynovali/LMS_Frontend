@@ -14,7 +14,7 @@ function StudentDetail() {
     university: student.university || "",
     faculty: student.faculty || "",
     point: student.point || "",
-    admissionDate: student.admissionDate || "",
+    admissionDate: student.joinDate || "",
     joinDate: student.joinDate || "",
     image: student.image || "",
   };
@@ -42,7 +42,7 @@ function StudentDetail() {
     { id: "address", label: "Ünvan", placeholder: "Ünvan" },
   ];
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values:any) => {
     console.log(values);
   };
 

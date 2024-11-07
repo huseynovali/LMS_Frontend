@@ -37,7 +37,7 @@ function TeacherDetail() {
     { id: "joinDate", label: "Qoşulma Tarixi", placeholder: "Qoşulma Tarixi" },
   ];
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values:any) => {
     console.log("Updated data:", values);
   };
 
