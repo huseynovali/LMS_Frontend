@@ -2,11 +2,12 @@ import { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { teachers } from "../fakedata";
+import ChangePasswordForm from "../components/ChangePasswordForm";
 
 function TeacherDetail() {
   const teacher = teachers[0];
   const [editActive, setEditActive] = useState(false);
-
+  const toggleEdit = () => setEditActive((prev) => !prev);
   const initialValues = {
     name: teacher.name || "",
     surname: teacher.surname || "",
@@ -37,8 +38,8 @@ function TeacherDetail() {
     { id: "joinDate", label: "Qoşulma Tarixi", placeholder: "Qoşulma Tarixi" },
   ];
 
-  const handleSubmit = (values:any) => {
-    console.log("Updated data:", values);
+  const handleSubmit = (values: any) => {
+    alert("Updated data:", values);
   };
 
   const deleteTeacher = () => {
@@ -48,93 +49,97 @@ function TeacherDetail() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
-      <div className="flex items-center space-x-6 justify-between">
-        {teacher.image ? (
-          <img src={teacher.image} alt="Profile" className="w-24 h-24 rounded-full" />
-        ) : (
+    <div>
+      <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+        <div className="flex items-center space-x-6 justify-between">
           <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-3xl text-gray-500">
             <span>
               {teacher.name.charAt(0)}
               {teacher.surname.charAt(0)}
             </span>
           </div>
-        )}
-        <button
-          onClick={deleteTeacher}
-          className="px-3 py-2 bg-red-500 text-white rounded-lg"
-        >
-          Sil
-        </button>
+
+          <button
+            onClick={deleteTeacher}
+            className="px-3 py-2 bg-red-500 text-white rounded-lg"
+          >
+            Sil
+          </button>
+        </div>
+
+        <div className="py-10">
+          <div>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
+              <Form>
+                <div className="grid grid-cols-2 gap-x-10 gap-y-5">
+                  {fieldInput.map(({ id, label, placeholder }) => (
+                    <div key={id}>
+                      <label
+                        htmlFor={id}
+                        className={`text-sm font-medium mb-2 flex items-center ${
+                          editActive ? "text-primary" : "text-gray-500"
+                        }`}
+                      >
+                        {label}
+                      </label>
+                      <Field
+                        type="text"
+                        id={id}
+                        name={id}
+                        className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm ${
+                          editActive ? "border-border" : "border-gray-500"
+                        }`}
+                        disabled={!editActive}
+                        placeholder={placeholder}
+                      />
+                      <ErrorMessage
+                        name={id}
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
+                    </div>
+                  ))}
+                </div>
+                {editActive && (
+                  <div>
+                    <button
+                      type="submit"
+                      className={`mt-4 px-4 py-2 rounded ${
+                        editActive ? "bg-gray-400" : "bg-gray-500"
+                      } text-white`}
+                      disabled={!editActive}
+                    >
+                      Yadda Saxla
+                    </button>
+                    <button
+                      type="button"
+                      onClick={toggleEdit}
+                      className="mt-4 px-4 py-2 bg-red-400 text-white rounded"
+                    >
+                      İmtina
+                    </button>
+                  </div>
+                )}
+                {!editActive && (
+                  <button
+                    type="button"
+                    onClick={() => setEditActive(!editActive)}
+                    className="mt-4 px-4 py-2 bg-gray-400 text-white rounded"
+                  >
+                    Melumatlari dəyiş
+                  </button>
+                )}
+              </Form>
+            </Formik>
+          </div>
+        </div>
       </div>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ handleSubmit }) => (
-          <Form onSubmit={handleSubmit}>
-            <div className="mt-6 space-y-4">
-              <div className="flex justify-between flex-wrap gap-5">
-                {fieldInput.map(({ id, label, placeholder }) => (
-                  <div key={id}>
-                    <label
-                      htmlFor={id}
-                      className={`text-sm font-medium mb-2 flex items-center ${
-                        editActive ? "text-primary" : "text-gray-500"
-                      }`}
-                    >
-                      {label}
-                    </label>
-                    <Field
-                      type="text"
-                      id={id}
-                      name={id}
-                      className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm ${
-                        editActive ? "border-border" : "border-gray-500"
-                      }`}
-                      disabled={!editActive}
-                      placeholder={placeholder}
-                    />
-                    <ErrorMessage
-                      name={id}
-                      component="div"
-                      className="text-red-500 text-sm"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            {editActive && (
-              <button
-                type="submit"
-                className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-md"
-              >
-                Yadda Saxla
-              </button>
-            )}
-          </Form>
-        )}
-      </Formik>
-      
-      <div className="mt-6 flex justify-end">
-        {!editActive ? (
-          <button
-            onClick={() => setEditActive(true)}
-            className="px-4 py-2 bg-slate-500 text-white rounded-md"
-          >
-            Redaktə Et
-          </button>
-        ) : (
-          <button
-            onClick={() => setEditActive(false)}
-            className="px-4 py-2 bg-gray-500 text-white rounded-md"
-          >
-            İmtina Et
-          </button>
-        )}
-      </div>
+      <ChangePasswordForm role="teacher" id={teacher.id} />
     </div>
   );
 }

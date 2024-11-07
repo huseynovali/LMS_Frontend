@@ -73,24 +73,9 @@ const sidebarLinksData = {
   ],
   admin: [
     {
-      name: "Dashboard",
-      link: "/admin/dashboard",
-      icon: <FaBook size={24} />,
-    },
-    {
-      name: "Profile",
-      link: "/admin/profile",
-      icon: <FaUser size={24} />,
-    },
-    {
       name: "Courses",
       link: "/admin/courses",
       icon: <FaBook size={24} />,
-    },
-    {
-      name: "Settings",
-      link: "/admin/settings",
-      icon: <FaCog size={24} />,
     },
     {
       name: "Students",

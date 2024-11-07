@@ -28,6 +28,7 @@ export const notificationData = [
 ];
 
 export const accoundData = {
+  id: 1,
   name: "John",
   surname: "Doe",
   fatherName: "Doe",
