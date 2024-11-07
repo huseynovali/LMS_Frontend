@@ -3,12 +3,13 @@ import { studentCourseData } from "../fakedata";
 
 function Courses() {
   const { role } = useParams();
+  const data = studentCourseData;
   return (
     <div className="w-full bg-white p-5 rounded-lg">
       <h1 className="text-2xl font-semibold">Dərslər</h1>
       <div>
         <ul className="grid grid-cols-12 gap-x-5 ">
-          {studentCourseData.map((course) => (
+          {data.map((course) => (
             <li
               key={course.id}
               className="my-4  border border-[#D5DBE7] rounded-lg col-span-12 md:col-span-6 lg:col-span-4"

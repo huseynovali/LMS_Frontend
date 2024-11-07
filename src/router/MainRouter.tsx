@@ -11,6 +11,7 @@ import Resources from "../components/course/Resources";
 import Absences from "../components/course/Absences";
 import CoursesStudents from "../components/course/CoursesStudents";
 import CreateGroup from "../pages/CreateGroup";
+import Students from "../pages/Students";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
           {
             path: "create-group",
             element: <CreateGroup />,
+          },
+          {
+            path: "students",
+            element: <Students />,
           },
         ],
       },

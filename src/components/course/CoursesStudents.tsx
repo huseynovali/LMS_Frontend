@@ -16,6 +16,9 @@ function CoursesStudents() {
       coursesStudents.flatMap((student) => student.absences.map((a) => a.date))
     )
   );
+  const sortedStudents = coursesStudents
+    ?.slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   const paginatedDates = allDates.slice(
     currentPage * datesPerPage,
@@ -33,7 +36,9 @@ function CoursesStudents() {
   return (
     <div className="p-4">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-semibold mb-4">Tələbələr</h1>
+        <h1 className="text-2xl font-semibold mb-4">
+          Tələbələr <span className="ml-5">{sortedStudents.length}</span>{" "}
+        </h1>
         {role == "teacher" && <AddAbsences allDates={allDates} />}
         {role == "admin" && checkedStudent == null && <AddStudent />}
         {role == "admin" && checkedStudent !== null && (
@@ -55,7 +60,7 @@ function CoursesStudents() {
             </tr>
           </thead>
           <tbody>
-            {coursesStudents.sort().map((student) => (
+            {sortedStudents?.map((student) => (
               <tr
                 key={student.name}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"

@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useParams } from "react-router";
 import { studentCourseData } from "../fakedata";
 import { Link } from "react-router-dom";
+import GroupTeacher from "../components/course/GroupTeacher";
 
 const tabs = {
   student: [
@@ -53,6 +54,7 @@ function CourseDetail() {
           <div className="flex flex-col justify-center items-end">
             <p className="text-[#7585A5] my-2">{course?.date}</p>
             <p className="text-[#7585A5] my-2">{course?.time}</p>
+            {role == "admin" && <GroupTeacher course={course} role={role} />}
           </div>
         </div>
         <div className="px-3 overflow-auto mt-5">
