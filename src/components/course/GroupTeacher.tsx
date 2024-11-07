@@ -11,7 +11,7 @@ interface Teacher {
   phone: string;
 }
 
-function GroupTeacher({ course, role }: { course: any; role: string }) {
+function GroupTeacher({ course, role }: Readonly<{ course: any; role: string }>) {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
   const [searchTeacher, setSearchTeacher] = useState<Teacher[]>([]);
