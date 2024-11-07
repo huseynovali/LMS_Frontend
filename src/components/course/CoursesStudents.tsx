@@ -65,7 +65,7 @@ function CoursesStudents() {
                 key={student.name}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               >
-                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex">
+                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex relative">
                   <div className="w-10 h-5"></div>
                   <div className="absolute">
                     {!checkedStudent && (

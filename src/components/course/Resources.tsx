@@ -18,13 +18,48 @@ function Resources() {
   };
 
   const files = [
-    { name: "Document 1", date: "2023-11-01", link: "/path/to/document1.pdf" },
-    { name: "Document 2", date: "2023-11-02", link: "/path/to/document2.pdf" },
-    { name: "Document 3", date: "2023-11-03", link: "/path/to/document3.pdf" },
-    { name: "Document 4", date: "2023-11-04", link: "/path/to/document4.pdf" },
-    { name: "Document 5", date: "2023-11-05", link: "/path/to/document5.pdf" },
-    { name: "Document 6", date: "2023-11-06", link: "/path/to/document6.pdf" },
-    { name: "Document 7", date: "2023-11-07", link: "/path/to/document7.pdf" },
+    {
+      id: 1,
+      name: "Document 1",
+      date: "2023-11-01",
+      link: "/path/to/document1.pdf",
+    },
+    {
+      id: 2,
+      name: "Document 2",
+      date: "2023-11-02",
+      link: "/path/to/document2.pdf",
+    },
+    {
+      id: 3,
+      name: "Document 3",
+      date: "2023-11-03",
+      link: "/path/to/document3.pdf",
+    },
+    {
+      id: 4,
+      name: "Document 4",
+      date: "2023-11-04",
+      link: "/path/to/document4.pdf",
+    },
+    {
+      id: 5,
+      name: "Document 5",
+      date: "2023-11-05",
+      link: "/path/to/document5.pdf",
+    },
+    {
+      id: 6,
+      name: "Document 6",
+      date: "2023-11-06",
+      link: "/path/to/document6.pdf",
+    },
+    {
+      id: 7,
+      name: "Document 7",
+      date: "2023-11-07",
+      link: "/path/to/document7.pdf",
+    },
   ];
 
   const totalPages = Math.ceil(files.length / filesPerPage);
@@ -50,21 +85,20 @@ function Resources() {
     <div className="p-4">
       <div className="flex justify-between mb-5">
         <h2 className="text-2xl font-semibold mb-4">Vəsaitlər</h2>
-
-        {!file && role !== "student" && (
-          <button className="bg-blue-500 text-white h-[30px] px-2 rounded hover:bg-blue-600 relative">
-            <input
-              type="file"
-              name=""
-              id=""
-              className="absolute w-full h-full opacity-0"
-              onChange={(e) =>
-                setFile(e.target.files ? e.target.files[0] : null)
-              }
-            />
-            Fayl seç
-          </button>
-        )}
+        <div className="file-input-wrapper">
+          {!file && role !== "student" && (
+            <button className="bg-blue-500 text-white h-[30px] px-2 rounded hover:bg-blue-600 relative">
+              <input
+                type="file"
+                className="absolute w-full h-full opacity-0"
+                onChange={(e) =>
+                  setFile(e.target.files ? e.target.files[0] : null)
+                }
+              />
+              <span>Fayl seç</span>
+            </button>
+          )}
+        </div>
         {file && (
           <div>
             <p>
@@ -87,41 +121,42 @@ function Resources() {
           </div>
         )}
       </div>
-
-      <table className="min-w-full bg-white border border-gray-200 rounded-lg">
-        <thead>
-          <tr>
-            <th className="py-2 px-4 border-b">Fayl Adı</th>
-            <th className="py-2 px-4 border-b">Yerləşdirilmə Tarixi</th>
-            <th className="py-2 px-4 border-b">Yüklə</th>
-            <th className="py-2 px-4 border-b"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentFiles.map((file, index) => (
-            <tr key={index} className="text-center">
-              <td className="py-2 px-4 border-b">{file.name}</td>
-              <td className="py-2 px-4 border-b">{file.date}</td>
-              <td className="py-2 px-4 border-b">
-                <a
-                  href={file.link}
-                  download
-                  className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
-                >
-                  Yüklə
-                </a>
-              </td>
-              {role !== "student" && (
-                <td className="py-2 px-4 border-b">
-                  <button className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">
-                    Sil
-                  </button>
-                </td>
-              )}
+      <div className="w-full overflow-auto">
+        <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-auto">
+          <thead>
+            <tr>
+              <th className="py-2 px-4 border-b">Fayl Adı</th>
+              <th className="py-2 px-4 border-b">Yerləşdirilmə Tarixi</th>
+              <th className="py-2 px-4 border-b">Yüklə</th>
+              <th className="py-2 px-4 border-b"></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {currentFiles.map((file) => (
+              <tr key={file.id} className="text-center">
+                <td className="py-2 px-4 border-b">{file.name}</td>
+                <td className="py-2 px-4 border-b">{file.date}</td>
+                <td className="py-2 px-4 border-b">
+                  <a
+                    href={file.link}
+                    download
+                    className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
+                  >
+                    Yüklə
+                  </a>
+                </td>
+                {role !== "student" && (
+                  <td className="py-2 px-4 border-b">
+                    <button className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">
+                      Sil
+                    </button>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <div className="flex justify-end items-center mt-4">
         <button

@@ -54,7 +54,7 @@ function GroupTeacher({ course, role }: { course: any; role: string }) {
       )}
 
       {show && (
-        <div className="absolute bg-gray-100 lg:w-[500px] lg:h-[500px] overflow-auto p-3 lg:left-[40%] lg:top-[20%] inset-0 border rounded-lg shadow-2xl">
+        <div className="absolute bg-gray-100 z-20 lg:w-[500px] lg:h-[500px] overflow-auto p-3 lg:left-[40%] lg:top-[20%] inset-0 border rounded-lg shadow-2xl">
           <h1 className="text-center text-lg font-semibold p-2">
             Müəllim əlavə et
           </h1>
