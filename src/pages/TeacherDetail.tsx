@@ -81,7 +81,7 @@ function TeacherDetail() {
                       <label
                         htmlFor={id}
                         className={`text-sm font-medium mb-2 flex items-center ${
-                          editActive ? "text-primary" : "text-gray-500"
+                          editActive ? "text-[#3E80F9]" : "text-gray-500"
                         }`}
                       >
                         {label}
@@ -91,7 +91,7 @@ function TeacherDetail() {
                         id={id}
                         name={id}
                         className={`appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm ${
-                          editActive ? "border-border" : "border-gray-500"
+                          editActive ? "border-[#3E80F9]" : "border-gray-500"
                         }`}
                         disabled={!editActive}
                         placeholder={placeholder}
@@ -108,9 +108,7 @@ function TeacherDetail() {
                   <div>
                     <button
                       type="submit"
-                      className={`mt-4 px-4 py-2 rounded ${
-                        editActive ? "bg-gray-400" : "bg-gray-500"
-                      } text-white`}
+                      className={`mt-4 px-4 py-2 rounded  bg-[#3E80F9]  text-white`}
                       disabled={!editActive}
                     >
                       Yadda Saxla
@@ -118,7 +116,7 @@ function TeacherDetail() {
                     <button
                       type="button"
                       onClick={toggleEdit}
-                      className="mt-4 px-4 py-2 bg-red-400 text-white rounded"
+                      className="mt-4 px-4 py-2 border border-[#3E80F9] text-[#3E80F9] rounded mx-3"
                     >
                       İmtina
                     </button>
@@ -128,7 +126,7 @@ function TeacherDetail() {
                   <button
                     type="button"
                     onClick={() => setEditActive(!editActive)}
-                    className="mt-4 px-4 py-2 bg-gray-400 text-white rounded"
+                    className="mt-4 px-4 py-2 bg-[#3E80F9] text-white rounded"
                   >
                     Melumatlari dəyiş
                   </button>

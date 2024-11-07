@@ -31,7 +31,7 @@ function ChangePasswordForm({ role, id }: { role: string; id: number }) {
                 >
                   <label
                     htmlFor={field}
-                    className="text-sm font-medium mb-2 flex items-center text-gray-500"
+                    className="text-sm font-medium mb-2 flex items-center text-[#3E80F9] "
                   >
                     {field === "newPassword" ? "Yeni Parol" : "Təsdiq Parol"}
                   </label>

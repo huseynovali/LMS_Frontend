@@ -91,7 +91,7 @@ function StudentDetail() {
                   <label
                     htmlFor={id}
                     className={`text-sm font-medium ${
-                      editActive ? "text-primary" : "text-gray-500"
+                      editActive ? "text-[#3E80F9] " : "text-gray-500"
                     }`}
                   >
                     {label}
