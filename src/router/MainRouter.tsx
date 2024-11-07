@@ -12,6 +12,9 @@ import Absences from "../components/course/Absences";
 import CoursesStudents from "../components/course/CoursesStudents";
 import CreateGroup from "../pages/CreateGroup";
 import Students from "../pages/Students";
+import StudentDetail from "../pages/StudentDetail";
+import Teachers from "../pages/Teachers";
+import TeacherDetail from "../pages/TeacherDetail";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +73,19 @@ const router = createBrowserRouter([
             path: "students",
             element: <Students />,
           },
+          {
+            path: "student/:id",
+            element: <StudentDetail />,
+          },
+          {
+            path: "teachers",
+            element: <Teachers />,
+          },
+          {
+            path: "teacher/:id",
+            element: <TeacherDetail />,
+          },
+
         ],
       },
     ],

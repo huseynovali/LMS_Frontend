@@ -1,15 +1,14 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { allStudents } from "../fakedata";
+import { teachers } from "../fakedata";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Students() {
-  const data = allStudents;
+function Teachers() {
+  const data = teachers;
   const listElementCount = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / listElementCount);
 
-  // Sayfalama için veri
   const datapaginate = data.slice(
     (currentPage - 1) * listElementCount,
     currentPage * listElementCount
@@ -89,7 +88,7 @@ function Students() {
               <td className={cellClass}>{student.admissionDate}</td>
               <td className={cellClass}>
                 <Link
-                  to={`/admin/student/${student.id}`}
+                  to={`/admin/teacher/${student.id}`}
                   className="text-blue-500"
                 >
                   Daha ətraflı
@@ -127,4 +126,4 @@ function Students() {
   );
 }
 
-export default Students;
+export default Teachers;

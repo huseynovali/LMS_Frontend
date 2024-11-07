@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { coursesStudents } from "../../fakedata";
-import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import AddAbsences from "./AddAbsences";
 import { useParams } from "react-router";
 import AddStudent from "./AddStudent";
@@ -161,7 +161,7 @@ function CoursesStudents() {
             className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg disabled:opacity-50"
             aria-label="Sonraki Sayfa"
           >
-            <FaAngleLeft style={{ transform: "rotate(180deg)" }} />
+            <FaAngleRight />
           </button>
         </div>
       </div>

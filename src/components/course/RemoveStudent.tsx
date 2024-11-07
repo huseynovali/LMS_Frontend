@@ -1,4 +1,4 @@
-function RemoveStudent({ checkedStudent }: { checkedStudent: number | null }) {
+function RemoveStudent({ checkedStudent }: { readonly checkedStudent: number | null }) {
   const removeStudent = () => {
     if (confirm("Tələbəni qrupdan çıxarmaq istədiyinizə əminsiniz?")) {
       console.log({ checkedStudent });
