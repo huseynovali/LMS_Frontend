@@ -259,6 +259,8 @@ export const studentCourseData = [
 export const absences = [
   {
     id: 1,
+    studentId: 1,
+    subjectId: 1,
     date: "2023-11-01",
     absence: true,
   },
@@ -1131,3 +1133,51 @@ export const teachers = [
     joinDate: "2019-02-11",
   },
 ];
+
+
+export const mycourses = [
+  {
+    name:"Riyaziyyat",
+    teacher:"Ali Huseynov",
+    dates:[
+      "2024-11-01",
+      "2024-11-03",
+      "2024-11-05",
+      "2024-11-08",
+      "2024-11-10",
+      "2024-11-12",
+      "2024-11-15",
+      "2024-11-17",
+    ],
+
+  },
+  {
+    name:"Fizika",
+    teacher:"Mehmet Kaya",
+    dates:[
+      "2024-11-02",
+      "2024-11-04",
+      "2024-11-06",
+      "2024-11-09",
+      "2024-11-11",
+      "2024-11-13",
+      "2024-11-16",
+      "2024-11-18",
+    ],
+  },
+  {
+    name:"Kimya",
+    teacher:"Ayşe Demir",
+    dates:[
+      "2024-11-01",
+      "2024-11-03",
+      "2024-11-05",
+      "2024-11-08",
+      "2024-11-10",
+      "2024-11-12",
+      "2024-11-15",
+      "2024-11-17",
+    ],
+  }
+
+]

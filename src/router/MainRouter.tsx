@@ -15,6 +15,7 @@ import Students from "../pages/Students";
 import StudentDetail from "../pages/StudentDetail";
 import Teachers from "../pages/Teachers";
 import TeacherDetail from "../pages/TeacherDetail";
+import Calendar from "../pages/Calendar";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
           {
             path: "courses",
             element: <Courses />,
+          },
+          {
+            path:"calendar",
+            element: <Calendar/>
           },
           {
             path: "courses/:id",
