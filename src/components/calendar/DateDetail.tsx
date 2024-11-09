@@ -10,7 +10,7 @@ function DateDetail({
 }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="w-[300px] h-[300px]   shadow-lg border bg-white   absolute inset-[40%] z-30 rounded-lg">
+      <div className="w-[300px] h-[300px]   shadow-lg border bg-white   absolute lg:inset-[40%] z-30 rounded-lg">
         <div className="p-2">
           <div className="px-2 py-3 border-b">
             <p className="text-xl font-semibold">{selectCourse.name}</p>

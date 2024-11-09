@@ -47,13 +47,13 @@ export function useCalendar(
         days.push(
           <div
             key={day}
-            className="h-32 flex flex-col items-end justify-start cursor-pointer rounded-lg border p-2"
+            className="h-32 mx-1/2 my-1 overflow-auto flex flex-col items-end justify-start cursor-pointer rounded-lg border p-2"
           >
             <span>{format(day, "d")}</span>
             {events.map((event, index) => (
               <button
                 key={index}
-                className="text-xs w-full px-3 py-2 rounded-lg bg-[#3E80F9] bg-opacity-20 my-2 relative"
+                className="text-xs w-full px-3 py-2 rounded-lg bg-[#3E80F9] bg-opacity-20 my-1 relative"
                 onClick={() => setSelectedCourse(event)}
               >
                 {event.name}
