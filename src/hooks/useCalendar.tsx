@@ -1,0 +1,84 @@
+import { useState } from "react";
+import {
+  startOfMonth,
+  endOfMonth,
+  startOfWeek,
+  endOfWeek,
+  addDays,
+  isSameDay,
+  format,
+  parseISO,
+} from "date-fns";
+
+export function useCalendar(
+  eventsData: {
+    name: string;
+    dates: string[];
+    teacher: string;
+    time: string;
+    days: string;
+  }[]
+) {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
+  const startDate = startOfWeek(startOfMonth(currentMonth));
+  const endDate = endOfWeek(endOfMonth(currentMonth));
+
+  const prevMonth = () => setCurrentMonth((prev) => addDays(prev, -30));
+  const nextMonth = () => setCurrentMonth((prev) => addDays(prev, 30));
+
+  const getEventsForDate = (date) => {
+    return eventsData.filter((course) =>
+      course.dates.some((courseDate) => isSameDay(parseISO(courseDate), date))
+    );
+  };
+
+  const generateCalendar = () => {
+    const rows = [];
+    let days = [];
+    let day = startDate;
+
+    while (day <= endDate) {
+      for (let i = 0; i < 7; i++) {
+        const cloneDay = day;
+        const events = getEventsForDate(cloneDay);
+
+        days.push(
+          <div
+            key={day}
+            className="h-32 flex flex-col items-end justify-start cursor-pointer rounded-lg border p-2"
+          >
+            <span>{format(day, "d")}</span>
+            {events.map((event, index) => (
+              <button
+                key={index}
+                className="text-xs w-full px-3 py-2 rounded-lg bg-[#3E80F9] bg-opacity-20 my-2 relative"
+                onClick={() => setSelectedCourse(event)}
+              >
+                {event.name}
+              </button>
+            ))}
+          </div>
+        );
+        day = addDays(day, 1);
+      }
+      rows.push(
+        <div className="grid grid-cols-7 gap-1" key={day}>
+          {days}
+        </div>
+      );
+      days = [];
+    }
+    return rows;
+  };
+
+  return {
+    currentMonth,
+    prevMonth,
+    nextMonth,
+    generateCalendar,
+    selectedCourse,
+    setSelectedCourse,
+  };
+}
