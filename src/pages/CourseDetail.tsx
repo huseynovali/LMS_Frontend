@@ -2,6 +2,7 @@ import { Outlet, useLocation, useParams } from "react-router";
 import { studentCourseData } from "../fakedata";
 import { Link } from "react-router-dom";
 import GroupTeacher from "../components/course/GroupTeacher";
+import EditCourse from "../components/course/EditCourse";
 
 const tabs = {
   student: [
@@ -51,7 +52,19 @@ function CourseDetail() {
             <h1 className="text-2xl font-semibold my-2">{course?.name}</h1>
             <p className="text-[#7585A5] my-2">{course?.teacher}</p>
           </div>
+
           <div className="flex flex-col justify-center items-end">
+            {" "}
+            <div>
+              {role == "admin" && (
+                <div className="flex">
+                  <button className="px-5 py-2 rounded-lg bg-red-400 text-white">
+                    Sil
+                  </button>
+                   <EditCourse course ={course}/>
+                </div>
+              )}
+            </div>
             <p className="text-[#7585A5] my-2">{course?.date}</p>
             <p className="text-[#7585A5] my-2">{course?.time}</p>
             {role == "admin" && <GroupTeacher course={course} role={role} />}

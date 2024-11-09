@@ -1,3 +1,4 @@
+import { id } from "date-fns/locale";
 import { date } from "yup";
 
 export const notificationData = [
@@ -1137,8 +1138,10 @@ export const teachers = [
 
 export const mycourses = [
   {
+    id: 1,
     name:"Riyaziyyat",
     teacher:"Ali Huseynov",
+    time:"10:00",
     dates:[
       "2024-11-01",
       "2024-11-03",
@@ -1150,10 +1153,13 @@ export const mycourses = [
       "2024-11-17",
     ],
 
+
   },
   {
+    id: 2,
     name:"Fizika",
     teacher:"Mehmet Kaya",
+    time:"12:00",
     dates:[
       "2024-11-02",
       "2024-11-04",
@@ -1166,8 +1172,10 @@ export const mycourses = [
     ],
   },
   {
+    id: 3,
     name:"Kimya",
     teacher:"Ayşe Demir",
+    time:"14:00",
     dates:[
       "2024-11-01",
       "2024-11-03",
