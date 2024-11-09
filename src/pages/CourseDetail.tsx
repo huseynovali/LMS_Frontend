@@ -65,7 +65,7 @@ function CourseDetail() {
                 </div>
               )}
             </div>
-            <p className="text-[#7585A5] my-2">{course?.date}</p>
+            <p className="text-[#7585A5] my-2">{course?.days}</p>
             <p className="text-[#7585A5] my-2">{course?.time}</p>
             {role == "admin" && <GroupTeacher course={course} role={role} />}
           </div>
