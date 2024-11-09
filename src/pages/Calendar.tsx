@@ -10,10 +10,11 @@ import {
   parseISO,
 } from "date-fns";
 import { mycourses } from "../fakedata";
+import { MdClose } from "react-icons/md";
 
 function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-
+  const [selectCourse, setSelectCourse] = useState({});
   const startDate = startOfWeek(startOfMonth(currentMonth));
   const endDate = endOfWeek(endOfMonth(currentMonth));
 
@@ -43,22 +44,13 @@ function Calendar() {
           >
             <span>{format(day, "d")}</span>
             {events.map((event, index) => (
-              <div
+              <button
                 key={index}
-                onClick={() => setSelectedDateEvents(events)}
-                className="text-xs w-full px-3 py-2 rounded-lg bg-[#3E80F9] bg-opacity-20 my-2 relative group"
+                className="text-xs w-full px-3 py-2 rounded-lg bg-[#3E80F9] bg-opacity-20 my-2 relative "
+                onClick={() => setSelectCourse(event)}
               >
-                <div className="w-[300px] h-[300px]  bg-[#3E80F9] shadow-lg border border-white hidden group-hover:block group-focus:block absolute inset-0 z-30 rounded-lg">
-                  <div className="flex items-center justify-between p-2 border-b border-white bg-opacity-20 rounded-t-lg">
-                    <h3 className="text-white">{event.name}</h3>
-                  </div>
-                  <div className="p-2">
-                    <p className="text-white text-xl">Müellim : {event.teacher}</p>
-                    <p className="text-white text-xl">Saat : {event.time}</p>
-                  </div>
-                </div>
                 {event.name}
-              </div>
+              </button>
             ))}
           </div>
         );
@@ -75,26 +67,55 @@ function Calendar() {
   };
 
   return (
-    <div className=" mx-auto mt-10 overflow-auto">
-      <div className="flex justify-between items-center mb-4">
-        <button onClick={prevMonth} className="text-gray-500">
-          &lt;
-        </button>
-        <h2 className="text-xl font-semibold">
-          {format(currentMonth, "MMMM yyyy")}
-        </h2>
-        <button onClick={nextMonth} className="text-gray-500">
-          &gt;
-        </button>
-      </div>
-      <div className="grid grid-cols-7 text-center font-bold mb-2">
-        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-          <div key={day} className="text-center">
-            {day}
+    <div className="mx-auto mt-10 overflow-auto">
+      <div className="w-[1024px]">
+        <div className="flex justify-between items-center mb-4 ">
+          <button onClick={prevMonth} className="text-gray-500">
+            &lt;
+          </button>
+          <h2 className="text-xl font-semibold">
+            {format(currentMonth, "MMMM yyyy")}
+          </h2>
+          <button onClick={nextMonth} className="text-gray-500">
+            &gt;
+          </button>
+        </div>
+        <div className="grid grid-cols-7 text-center font-bold mb-2 ">
+          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+            <div key={day} className="text-center">
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className="overflow-auto ">{generateCalendar()}</div>
+        {selectCourse && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="w-[300px] h-[300px]   shadow-lg border bg-white   absolute inset-[40%] z-30 rounded-lg">
+              <div className="p-2">
+                <div className="px-2 py-3 border-b">
+                  <p className="text-xl font-semibold">{selectCourse.name}</p>
+                  <MdClose
+                    size={20}
+                    onClick={() => setSelectCourse(null)}
+                    className="absolute right-2 top-2 cursor-pointer"
+                  />
+                </div>
+                <p className="text-xl my-2">Müellim : {selectCourse.teacher}</p>
+                <p className="text-xl my-2">Saat : {selectCourse.time}</p>
+                <p className="text-xl my-2">Gün : {selectCourse.days}</p>
+                <div className="mt-5">
+                  <button className="px-3 py-2 rounded-lg bg-gray-500 text-white">
+                    Saatı dəyiş
+                  </button>
+                  <button className="px-3 py-2 rounded-lg  bg-red-400 text-white mx-2">
+                    Təxirə sal
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        ))}
+        )}
       </div>
-      <div className="">{generateCalendar()}</div>
     </div>
   );
 }
