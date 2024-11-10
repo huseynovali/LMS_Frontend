@@ -16,6 +16,7 @@ import StudentDetail from "../pages/StudentDetail";
 import Teachers from "../pages/Teachers";
 import TeacherDetail from "../pages/TeacherDetail";
 import Calendar from "../pages/Calendar";
+import AddQuestion from "../pages/AddQuestion";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
             path: "teacher/:id",
             element: <TeacherDetail />,
           },
+          {
+            path:"add-question",
+            element:<AddQuestion/>
+          }
 
         ],
       },
