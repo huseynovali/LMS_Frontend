@@ -17,6 +17,7 @@ import Teachers from "../pages/Teachers";
 import TeacherDetail from "../pages/TeacherDetail";
 import Calendar from "../pages/Calendar";
 import AddQuestion from "../pages/AddQuestion";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"login",
+    element:<Login/>
+  }
 ]);
 
 export default router;
