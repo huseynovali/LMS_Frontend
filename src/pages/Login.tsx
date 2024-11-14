@@ -38,7 +38,7 @@ function Login() {
                 <Field
                   type="text"
                   name="username"
-                  className="w-full py-3 rounded-lg outline-none border border-[#D5DBE7]"
+                  className="w-full py-3 rounded-lg px-2 outline-none border border-[#D5DBE7]"
                 />
                 <ErrorMessage name="username" component="div" className="text-red-500 text-sm mt-1" />
               </div>
@@ -48,7 +48,7 @@ function Login() {
                 <Field
                   type="password"
                   name="password"
-                  className="w-full py-3 rounded-lg outline-none border border-[#D5DBE7]"
+                  className="w-full py-3 px-2 rounded-lg outline-none border border-[#D5DBE7]"
                 />
                 <ErrorMessage name="password" component="div" className="text-red-500 text-sm mt-1" />
               </div>
