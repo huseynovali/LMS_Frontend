@@ -1,7 +1,7 @@
 import sidebarLinksData from "../../constant/sidebarlinks";
 import { useEffect, useState } from "react";
 import { sidebarlinks } from "../../types/types";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import Logo from "../../assets/logo.png";
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -15,6 +15,10 @@ function Sidebar({
 }) {
   const [sidebarLinks, setSidebarLinks] = useState<sidebarlinks[]>([]);
   const params = useParams();
+  const location = useLocation();
+  const { pathname } = location;
+  const nav = pathname.split("/");
+  console.log(nav);
   const { student, teacher, admin } = sidebarLinksData;
   const [toggle, setToggle] = useState<string | null>(null);
   useEffect(() => {
@@ -54,9 +58,13 @@ function Sidebar({
                   <div>
                     <button
                       onClick={() =>
-                        setToggle((toggle) => (toggle ? "" : link.name))
+                        setToggle((toggle) => (toggle ? "" : link.idName))
                       }
-                      className=" px-4 py-2 text-[#667797] hover:bg-[#3E80F9] hover:bg-opacity-30 hover:text-[#3E80F9] rounded w-full flex items-center justify-between"
+                      className={`${
+                        toggle == link.idName
+                          ? "text-white bg-[#3E80F9]"
+                          : "text-[#667797] hover:bg-[#3E80F9] hover:text-[#3E80F9]"
+                      } px-4 py-2   hover:bg-opacity-30  rounded w-full flex items-center justify-between`}
                     >
                       <div className="flex items-center">
                         <span className="mr-2">{link.icon}</span>
@@ -78,25 +86,29 @@ function Sidebar({
                       >
                         {link.children.map((child) => (
                           <li key={child.name}>
-                            <a
-                              href={child.link}
+                            <Link
+                              to={child.link}
                               className=" px-4 py-2 text-[#667797]  rounded flex items-center hover:text-[#3E80F9]"
                             >
                               <span className="text-[1rem]">{child.name}</span>
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
                 ) : (
-                  <a
-                    href={link?.link}
-                    className=" px-4 py-2 text-[#667797] hover:bg-[#3E80F9] hover:bg-opacity-30 hover:text-[#3E80F9] rounded  flex items-center "
+                  <Link
+                    to={link.link}
+                    className={`${
+                      nav.includes(link.idName)
+                        ? "text-white bg-[#3E80F9] "
+                        : "text-[#667797] hover:bg-[#3E80F9] hover:text-[#3E80F9] hover:bg-opacity-30 "
+                    } px-4 py-2 rounded w-full flex items-center`}
                   >
                     <span className="mr-2">{link.icon}</span>
                     <span className="text-[1rem]">{link.name}</span>
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
