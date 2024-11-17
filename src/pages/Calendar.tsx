@@ -18,15 +18,14 @@ function Calendar() {
   } = useCalendar(mycourses);
   const { role } = useParams();
   return (
-    <div className="w-full  mx-auto mt-10 overflow-auto">
-      <div className="w-[1024px]">
-        <div className="flex justify-start items-center gap-10 my-10">
+    <div className="w-full  mx-auto   overflow-auto relative">
+      <div className="w-[1000px] md:w-full ">
+        <div className=" w-[250px] sticky flex justify-start items-center gap-10 -top-1 left-[0%] my-5 ">
           <button onClick={prevMonth} className="text-gray-500">
             <FaChevronLeft size={24} />
           </button>
           <h2 className="text-xl font-semibold">
             {format(currentMonth, "MMMM yyyy", { locale: az })}{" "}
-            {/* Azərbaycan dilində format */}
           </h2>
           <button onClick={nextMonth} className="text-gray-500">
             <FaChevronRight size={24} />
@@ -43,7 +42,7 @@ function Calendar() {
             )}
           </div>
           <div className="overflow-auto">{generateCalendar()}</div>
-          {selectedCourse && role == "admin" && (
+          {selectedCourse && (
             <DateDetail
               selectCourse={selectedCourse}
               setSelectCourse={setSelectedCourse}

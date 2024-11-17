@@ -1,5 +1,6 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
+import { useParams } from "react-router";
 
 function DateDetail({
   selectCourse,
@@ -8,6 +9,7 @@ function DateDetail({
   selectCourse: any;
   setSelectCourse: any;
 }) {
+  const { role } = useParams();
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="w-[300px] h-[300px]   shadow-lg border bg-white   absolute lg:inset-[40%] z-30 rounded-lg">
@@ -23,7 +25,8 @@ function DateDetail({
           <p className="text-xl my-2">Müellim : {selectCourse.teacher}</p>
           <p className="text-xl my-2">Saat : {selectCourse.time}</p>
           <p className="text-xl my-2">Gün : {selectCourse.days}</p>
-          <div className="mt-5">
+          { role =="admin" &&
+              <div className="mt-5">
             <button className="px-3 py-2 rounded-lg bg-gray-500 text-white">
               Saatı dəyiş
             </button>
@@ -31,6 +34,8 @@ function DateDetail({
               Təxirə sal
             </button>
           </div>
+          }
+        
         </div>
       </div>
     </div>
