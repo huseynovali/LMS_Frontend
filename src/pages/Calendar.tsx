@@ -16,7 +16,7 @@ function Calendar() {
     selectedCourse,
     setSelectedCourse,
   } = useCalendar(mycourses);
-  const { role } = useParams();
+
   return (
     <div className="w-full  mx-auto   overflow-auto relative">
       <div className="w-[1000px] md:w-full ">

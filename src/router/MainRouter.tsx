@@ -18,6 +18,7 @@ import TeacherDetail from "../pages/TeacherDetail";
 import Calendar from "../pages/Calendar";
 import AddQuestion from "../pages/AddQuestion";
 import Login from "../pages/Login";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path: "/:role",
         element: <MainLayout />,
         children: [
+          {
+            index: true,
+            element: <Home />,
+          },
           {
             path: "profile",
             element: <Account />,

@@ -18,7 +18,6 @@ function Sidebar({
   const location = useLocation();
   const { pathname } = location;
   const nav = pathname.split("/");
-  console.log(nav);
   const { student, teacher, admin } = sidebarLinksData;
   const [toggle, setToggle] = useState<string | null>(null);
   useEffect(() => {
@@ -99,7 +98,7 @@ function Sidebar({
                   </div>
                 ) : (
                   <Link
-                    to={link.link}
+                    to={link.link || "#"}
                     className={`${
                       nav.includes(link.idName)
                         ? "text-white bg-[#3E80F9] "
