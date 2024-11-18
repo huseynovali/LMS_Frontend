@@ -1191,3 +1191,114 @@ export const mycourses = [
   }
 
 ]
+
+
+
+
+export const posts = [
+  {
+    id: 1,
+    title: "Post 1",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel odio et felis vulputate tincidunt. Nulla ac venenatis nunc. Ut vehicula leo sit amet lectus feugiat, eu volutpat turpis dignissim. Nam tempor nulla ac lorem pharetra, ut sollicitudin nulla vehicula. Sed tempor libero et felis convallis, vel lacinia urna vehicula. Vestibulum eget interdum magna, id cursus felis. Aliquam erat volutpat. Nulla nec lorem ut metus malesuada varius. Aenean nec dui in nunc convallis auctor. In hac habitasse platea dictumst. Curabitur id urna quis nunc efficitur tempor vel ac erat. Suspendisse potenti. Integer lobortis orci eu dolor volutpat, ac interdum nisi feugiat. Mauris pharetra orci nec dui tincidunt, a hendrerit lorem fermentum. Sed lobortis venenatis justo, id dapibus purus ullamcorper id. Integer quis posuere felis. Ut auctor est sed turpis ultricies dictum. Nunc fermentum maximus nunc. Quisque convallis ligula vel arcu placerat, a convallis ex ullamcorper. Donec hendrerit malesuada metus ut elementum.",
+    author: "Ali Huseynov",
+    date: "2024-11-01",
+  },
+  {
+    id: 2,
+    title: "Post 2",
+    content: "Aliquam vestibulum purus sed orci egestas, sed fermentum justo faucibus. Nulla id tristique justo. Nam hendrerit orci sit amet gravida dapibus. Curabitur sagittis ipsum a ultricies tincidunt. Cras fringilla, elit nec volutpat sollicitudin, libero ante rutrum libero, sed laoreet elit odio ut nulla. Mauris consequat dui vel velit placerat, non dictum orci bibendum. Integer congue risus vel sollicitudin laoreet. Phasellus gravida auctor ligula, ac lacinia purus faucibus in. Ut consequat risus quis lectus sodales, sed sollicitudin lorem tincidunt. Aenean sit amet erat volutpat, volutpat urna at, hendrerit ipsum. Duis nec ipsum at nisi sodales suscipit. Aliquam erat volutpat. Sed faucibus libero et vestibulum viverra. Fusce consectetur mollis erat, a efficitur urna maximus nec. Cras tempor erat id nunc cursus, at lobortis tortor fermentum. Nunc eget libero vel odio sollicitudin faucibus ac ac elit. Pellentesque sollicitudin, turpis eu vehicula feugiat, purus sapien feugiat lorem, non ultricies eros nulla eget nisi.",
+    author: "Ali Huseynov",
+    date: "2024-11-02",
+  },
+  {
+    id: 3,
+    title: "Post 3",
+    content: "Fusce et magna libero. Aenean tempor suscipit dui in lacinia. Vivamus condimentum auctor gravida. Nunc ac ante nec nisl malesuada convallis. Sed auctor convallis orci in tempus. Integer maximus leo vel neque volutpat, sed maximus elit pretium. Curabitur interdum turpis libero, vel volutpat velit auctor sit amet. Proin lobortis odio at sapien vehicula placerat. Nulla sit amet nulla lorem. In maximus sem ac sollicitudin vestibulum. Aenean viverra ex vel lacus hendrerit, vel facilisis ante vehicula. Nunc malesuada orci sed felis cursus, et auctor magna placerat. Nam tincidunt velit id elit malesuada mollis. Nam imperdiet, sapien non facilisis fermentum, eros augue tincidunt ligula, in pharetra purus metus ac lorem. Sed pharetra suscipit sapien vel hendrerit. Etiam convallis ultricies nulla, vitae auctor nunc. Donec pretium suscipit turpis, sit amet viverra neque suscipit vel. Sed rhoncus ipsum ut ante vehicula, eget laoreet nisi pellentesque. Pellentesque consequat vitae orci id viverra. Etiam venenatis orci ut neque ultricies, eu egestas nisl aliquet.",
+    author: "Ali Huseynov",
+    date: "2024-11-03",
+  },
+  {
+    id: 4,
+    title: "Post 4",
+    content: "Mauris sagittis, ligula eget vestibulum faucibus, orci ante eleifend enim, eget aliquam orci felis a purus. Integer egestas, erat vitae tempor dignissim, purus velit egestas lectus, ut consequat enim lorem et eros. Nam mollis ipsum ligula, a luctus urna suscipit id. Sed accumsan magna ipsum, eget bibendum risus gravida id. Etiam congue risus ipsum, non ullamcorper odio mollis in. Integer ut tortor nec eros sodales maximus et ac ante. Phasellus vehicula lobortis nisi, eu placerat enim viverra id. Pellentesque vestibulum massa in dui sollicitudin suscipit. In lobortis magna eget eros scelerisque, sit amet tristique ipsum maximus. Aenean rhoncus, magna at gravida rhoncus, ante sem accumsan enim, id maximus nisi augue at augue. Aliquam ultricies volutpat lorem id condimentum. Cras euismod eros eget lectus convallis tempus. Sed in tortor at lectus gravida iaculis vel sit amet enim. Sed malesuada, lorem eget laoreet luctus, elit ipsum tempor risus, eget ullamcorper dui ligula vitae libero. In at justo placerat, varius eros at, cursus justo. Fusce sit amet magna et metus laoreet tempus.",
+    author: "Ali Huseynov",
+    date: "2024-11-04",
+  },
+  {
+    id: 5,
+    title: "Post 5",
+    content: "Cras tristique tincidunt urna in lacinia. Nam ac lectus et ligula congue consectetur ut at erat. Donec luctus sollicitudin sem sit amet tincidunt. Integer et auctor erat. Mauris finibus, nulla nec viverra vehicula, eros libero fringilla magna, sit amet dignissim turpis arcu a arcu. Ut vel ligula sit amet elit volutpat lacinia. Sed pharetra tortor a mauris condimentum mollis. In auctor ut nisl id tincidunt. Etiam eleifend justo nec ligula vulputate lobortis. Nam sagittis, arcu non tincidunt varius, orci ante suscipit ligula, ac malesuada lorem ante non nulla. Sed eleifend turpis vel ligula auctor, at sollicitudin turpis facilisis. Proin elementum urna nec tortor convallis ullamcorper. In dictum lorem vel turpis gravida lobortis. Curabitur vel nulla ac eros fermentum tristique sit amet vitae est. Nam maximus ipsum ac nulla pellentesque, ac dapibus turpis eleifend. Suspendisse quis nulla vel eros eleifend tempus.",
+    author: "Ali Huseynov",
+    date: "2024-11-05",
+  },
+  {
+    id: 6,
+    title: "Post 6",
+    content: "Sed tristique elit et lectus feugiat, et pretium nunc iaculis. Cras egestas quam sit amet orci condimentum, non condimentum lectus sollicitudin. Donec mollis ipsum velit, ut cursus sapien volutpat eget. Nam mollis nibh eu velit consequat cursus. Integer sit amet fringilla ante, at tincidunt velit. Etiam sagittis tempor dui. Curabitur in varius elit. Integer nec laoreet risus. Suspendisse ut quam dolor. Donec at tristique nisi. Integer euismod ac augue vitae volutpat. Etiam pharetra, mi id tincidunt viverra, mauris lorem posuere risus, ac dictum lacus ante eu leo. Sed dapibus bibendum magna a rutrum. Nulla viverra sem nec elit faucibus, sed auctor tortor lacinia. Ut non est sem. Nam auctor convallis turpis at efficitur.",
+    author: "Ali Huseynov",
+    date: "2024-11-06",
+  },
+  {
+    id: 7,
+    title: "Post 7",
+    content: "Cras ut libero scelerisque, convallis nisi at, feugiat magna. Donec bibendum tortor ac purus placerat, eu convallis lectus facilisis. Etiam bibendum, nisl ac auctor suscipit, lacus nisl rutrum nulla, ut efficitur metus felis id felis. Suspendisse potenti. Nam ac velit sit amet felis sodales tempus non non est. Fusce at leo mauris. Nulla facilisi. Ut tincidunt ipsum et metus auctor lobortis. Integer vulputate et nunc nec viverra. Nam sit amet nulla libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer at erat in lacus sollicitudin aliquet ac eu urna. In mollis nisi a est vehicula pretium. Nunc sit amet consequat augue, a fringilla libero. Ut tincidunt convallis nibh, id vehicula justo porttitor non. Morbi ultricies posuere enim, eget tristique eros maximus non.",
+    author: "Ali Huseynov",
+    date: "2024-11-07",
+  },
+  {
+    id: 8,
+    title: "Post 8",
+    content: "Pellentesque tempor posuere sem at facilisis. Fusce vel risus vitae sapien posuere efficitur. Etiam aliquam volutpat augue, id convallis erat finibus et. Vestibulum viverra libero ut mi dignissim, non ullamcorper purus eleifend. Mauris pellentesque, felis sit amet interdum maximus, ipsum orci varius elit, eget volutpat lorem libero id lectus. Ut ut elit sit amet urna gravida varius a sit amet est. Integer at quam erat. Suspendisse condimentum sapien in erat tincidunt, ut faucibus mauris egestas. Nam malesuada sapien ut magna hendrerit, sed dapibus ipsum malesuada. Curabitur nec gravida est. Curabitur vitae libero nec libero sodales pellentesque. In facilisis, dui non cursus volutpat, sapien orci feugiat augue, a sagittis metus turpis sit amet felis.",
+    author: "Ali Huseynov",
+    date: "2024-11-08",
+  },
+  {
+    id: 9,
+    title: "Post 9",
+    content: "Nullam varius libero in nunc ullamcorper ultricies. Nulla hendrerit lectus id metus consectetur, nec pharetra ligula tristique. Phasellus eu magna in purus ullamcorper dictum ut vel erat. Sed id lorem mi. Cras feugiat mollis nulla, vitae feugiat metus cursus sit amet. Mauris varius, elit et rutrum efficitur, lectus nisl fermentum lectus, ut pretium magna nisi at erat. Sed ut neque in nulla lobortis feugiat eget et libero. Vivamus consequat venenatis magna, sit amet fermentum risus egestas sit amet. Nulla ullamcorper, libero in varius auctor, sapien tortor cursus velit, nec auctor mi purus eget est. Nunc a felis id eros convallis condimentum. Etiam vulputate auctor ipsum, ac sollicitudin lorem tincidunt et.",
+    author: "Ali Huseynov",
+    date: "2024-11-09",
+  },
+  {
+    id: 10,
+    title: "Post 10",
+    content: "Aliquam sit amet nisi vel dolor faucibus varius. Suspendisse ac sapien a felis feugiat tincidunt sit amet sit amet ligula. Cras gravida ligula at est vehicula, ac varius lorem aliquam. Nunc congue orci non mi sodales tristique. Proin id mi ac ligula vehicula sollicitudin non non ante. In et nunc vel libero condimentum tincidunt non at dui. Integer mollis risus sapien, a sollicitudin orci facilisis et. Sed posuere risus et neque placerat, in tristique turpis tincidunt. Nam vulputate tortor eu felis dignissim lacinia. Integer ac lorem et turpis convallis efficitur a a velit. Nunc eget mollis turpis, vel suscipit nisi. Vestibulum ut justo id orci maximus malesuada non id lorem. Ut vestibulum felis at felis pharetra volutpat.",
+    author: "Ali Huseynov",
+    date: "2024-11-10",
+  },
+  {
+    id: 11,
+    title: "Post 11",
+    content: "Nulla facilisi. Nam feugiat, dui ac efficitur venenatis, libero magna fermentum neque, eget cursus velit leo sit amet justo. Cras ac ante auctor, consectetur ante et, pellentesque sapien. Nunc dictum risus vitae orci venenatis, ut rhoncus ligula cursus. Sed et felis et purus cursus ultricies sit amet eget libero. In euismod orci ac velit malesuada suscipit. Cras sollicitudin erat eget metus vehicula, vel hendrerit odio interdum. Sed orci libero, congue et sagittis vitae, viverra vel urna. Fusce volutpat pharetra mi. Aenean mollis et justo at consequat. Donec et pharetra odio. Quisque porttitor tristique lorem, vel malesuada metus interdum vitae.",
+    author: "Ali Huseynov",
+    date: "2024-11-11",
+  },
+  {
+    id: 12,
+    title: "Post 12",
+    content: "Mauris in odio leo. Etiam fringilla turpis a nulla posuere, vel euismod ipsum viverra. Ut ornare sem sed libero tincidunt, id lacinia turpis tempus. Donec hendrerit purus et consectetur malesuada. Aliquam erat volutpat. Curabitur ac nulla in nisi placerat porttitor et eget libero. Fusce ut nisl id lorem maximus malesuada. Donec tempus, nulla eget tincidunt auctor, lorem purus consequat lectus, ac tristique risus nisl sit amet metus. Nam volutpat orci libero, sit amet tincidunt ligula cursus vitae. Integer molestie libero vel libero rutrum auctor. Aenean sollicitudin maximus orci, eu lacinia odio tempor et. Sed et nisi eget metus tristique elementum in id enim.",
+    author: "Ali Huseynov",
+    date: "2024-11-12",
+  },
+  {
+    id: 13,
+    title: "Post 13",
+    content: "Pellentesque posuere quam sed felis malesuada, id euismod nunc posuere. Curabitur a ullamcorper sapien. Donec fermentum sapien leo, sed tristique dui aliquet et. Nam ac lectus justo. Cras posuere turpis orci, id placerat purus maximus at. Integer sodales lectus eget dui sollicitudin, nec congue sem lobortis. Nam sed dui vel elit efficitur rhoncus id sit amet eros. Sed eget varius magna. Donec nec odio sem. Pellentesque et libero non eros pharetra lobortis.",
+    author: "Ali Huseynov",
+    date: "2024-11-13",
+  },
+  {
+    id: 14,
+    title: "Post 14",
+    content: "In tristique sem at libero fermentum sollicitudin. Mauris vehicula id felis eget porttitor. Quisque malesuada ut sem in dictum. Ut consequat, lorem sed bibendum fermentum, ligula justo malesuada ligula, ut tristique turpis turpis eu libero. Nulla ac vestibulum enim. Morbi aliquam augue nec orci pharetra, in viverra sem accumsan. Nulla tempor eros sit amet posuere vulputate. Ut felis tortor, fermentum vitae purus vel, dapibus varius orci. Nam viverra orci quam, vel vehicula ligula accumsan eget. Sed et ex sit amet turpis feugiat condimentum. Donec vehicula volutpat ex, sit amet sollicitudin magna suscipit sed.",
+    author: "Ali Huseynov",
+    date: "2024-11-14",
+  },
+  {
+    id: 15,
+    title: "Post 15",
+    content: "Sed ut eros id quam rutrum vehicula. Nulla ornare felis in diam feugiat laoreet. Donec ac vehicula felis. Cras id elit egestas, elementum velit ut, auctor dolor. Proin dignissim felis et sapien laoreet, eget dictum lorem malesuada. Nam volutpat tincidunt risus at feugiat. Etiam sed sapien tincidunt, tincidunt lorem vel, molestie ligula. Fusce tempor pharetra libero, ac pharetra mauris lacinia ac. Curabitur in bibendum odio. Donec non mauris in nulla volutpat egestas. In vitae enim mauris. Ut ullamcorper lorem leo, ac tincidunt metus fringilla vitae. Nam malesuada felis in ante maximus, id volutpat odio tristique.",
+    author: "Ali Huseynov",
+    date: "2024-11-15",
+  },
+];
