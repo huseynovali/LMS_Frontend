@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import HomeAddPost from "../components/home/HomeAddPost";
 import HomePosts from "../components/home/HomePosts";
+import Loading from "./Loading";
 
 function Home() {
   const { role } = useParams();
@@ -14,6 +15,7 @@ function Home() {
 
       <h1 className="font-bold text-2xl mb-3">Xəbərlər</h1>
       <HomePosts />
+      <Loading />
     </div>
   );
 }

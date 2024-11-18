@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router";
 
 function AuthRouter() {
   const loading = false;
-  const isValid = true;
+  const isValid = false;
   const role = "login";
 
   if (loading) {

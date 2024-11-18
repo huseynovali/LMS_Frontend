@@ -19,6 +19,8 @@ import Calendar from "../pages/Calendar";
 import AddQuestion from "../pages/AddQuestion";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
+import LoginAdmin from "../pages/LoginAdmin";
+import AuthRouter from "./AuthRouter";
 
 const router = createBrowserRouter([
   {
@@ -56,8 +58,8 @@ const router = createBrowserRouter([
             element: <Courses />,
           },
           {
-            path:"calendar",
-            element: <Calendar/>
+            path: "calendar",
+            element: <Calendar />,
           },
           {
             path: "courses/:id",
@@ -98,18 +100,27 @@ const router = createBrowserRouter([
             element: <TeacherDetail />,
           },
           {
-            path:"add-question",
-            element:<AddQuestion/>
-          }
-
+            path: "add-question",
+            element: <AddQuestion />,
+          },
         ],
       },
     ],
   },
   {
-    path:"login",
-    element:<Login/>
-  }
+    path: "login",
+    element: <AuthRouter />,
+    children: [
+      {
+        index: true,
+        element: <Login />,
+      },
+      {
+        path: ":role",
+        element: <LoginAdmin />,
+      },
+    ],
+  },
 ]);
 
 export default router;

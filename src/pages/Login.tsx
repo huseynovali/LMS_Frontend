@@ -8,7 +8,6 @@ function Login() {
     password: "",
   };
 
-  // Yup validation schema
   const validationSchema = Yup.object({
     username: Yup.string().required("İstifadəçi adı tələb olunur"),
     password: Yup.string().required("Şifrə tələb olunur"),
