@@ -18,7 +18,7 @@ const tabs = {
   teacher: [
     {
       name: "Tələbələr",
-      link: "students",
+      link: "coursestudents",
     },
     {
       name: "Vesaitlər",
@@ -28,7 +28,7 @@ const tabs = {
   admin: [
     {
       name: "Tələbələr",
-      link: "students",
+      link: "coursestudents",
     },
     {
       name: "Vesaitlər",

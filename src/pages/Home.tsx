@@ -13,9 +13,9 @@ function Home() {
   }, 2000);
 
   if (loading) {
-    return <Loading/>
+    return <Loading />;
   }
- 
+
   return (
     <div className=" ">
       {role == "admin" && (

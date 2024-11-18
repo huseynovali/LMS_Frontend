@@ -74,7 +74,7 @@ const router = createBrowserRouter([
                 element: <Absences />,
               },
               {
-                path: "students",
+                path: "coursestudents",
                 element: <CoursesStudents />,
               },
             ],

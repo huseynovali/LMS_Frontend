@@ -9,7 +9,6 @@ function Students() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / listElementCount);
 
-  // Sayfalama için veri
   const datapaginate = data.slice(
     (currentPage - 1) * listElementCount,
     currentPage * listElementCount
