@@ -2,7 +2,7 @@ import "./MainLoading.css";
 
 function MainLoading() {
   return (
-    <div className="w-full h-screen absolute inset-0 z-50 bg-white flex justify-center items-center">
+    <div className="w-full h-full absolute inset-0 z-50 bg-white flex justify-center items-center">
       <div className="book ">
         <div className="book__pg-shadow"></div>
         <div className="book__pg"></div>

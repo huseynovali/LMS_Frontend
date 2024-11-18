@@ -2,9 +2,20 @@ import { useParams } from "react-router";
 import HomeAddPost from "../components/home/HomeAddPost";
 import HomePosts from "../components/home/HomePosts";
 import Loading from "./Loading";
+import { useState } from "react";
 
 function Home() {
   const { role } = useParams();
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
+
+  if (loading) {
+    return <Loading/>
+  }
+ 
   return (
     <div className=" ">
       {role == "admin" && (
@@ -15,7 +26,6 @@ function Home() {
 
       <h1 className="font-bold text-2xl mb-3">Xəbərlər</h1>
       <HomePosts />
-      <Loading />
     </div>
   );
 }
