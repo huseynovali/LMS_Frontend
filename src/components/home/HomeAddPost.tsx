@@ -43,7 +43,7 @@ function HomeAddPost() {
     "clean",
   ];
   return (
-    <div className="bg-white  px-5 py-3 rounded-lg  overflow-hidden">
+    <div className="bg-white  px-5 py-3 rounded-lg  overflow-hidden mb-5">
       <ReactQuill
         theme="snow"
         value={post}
