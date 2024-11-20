@@ -12,5 +12,20 @@ export type studentCourseData = {
   teacher: string | null;
   days: string;
   time: string;
+};
 
+export type student = {
+  id: number;
+  name: string;
+  surname: string;
+  fatherName: string;
+  email: string;
+  phone: string;
+  address: string;
+  image: null;
+  joinDate: string;
+  point: number;
+  university: string;
+  faculty: string;
+  admissionDate: string;
 };
