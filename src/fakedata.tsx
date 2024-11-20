@@ -1198,28 +1198,28 @@ export const mycourses = [
 export const posts = [
   {
     id: 1,
-    title: "Post 1",
+    title: "Lorem ipsum dolor sit amet",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel odio et felis vulputate tincidunt. Nulla ac venenatis nunc. Ut vehicula leo sit amet lectus feugiat, eu volutpat turpis dignissim. Nam tempor nulla ac lorem pharetra, ut sollicitudin nulla vehicula. Sed tempor libero et felis convallis, vel lacinia urna vehicula. Vestibulum eget interdum magna, id cursus felis. Aliquam erat volutpat. Nulla nec lorem ut metus malesuada varius. Aenean nec dui in nunc convallis auctor. In hac habitasse platea dictumst. Curabitur id urna quis nunc efficitur tempor vel ac erat. Suspendisse potenti. Integer lobortis orci eu dolor volutpat, ac interdum nisi feugiat. Mauris pharetra orci nec dui tincidunt, a hendrerit lorem fermentum. Sed lobortis venenatis justo, id dapibus purus ullamcorper id. Integer quis posuere felis. Ut auctor est sed turpis ultricies dictum. Nunc fermentum maximus nunc. Quisque convallis ligula vel arcu placerat, a convallis ex ullamcorper. Donec hendrerit malesuada metus ut elementum.",
     author: "Ali Huseynov",
     date: "2024-11-01",
   },
   {
     id: 2,
-    title: "Post 2",
+    title: "Aliquam vestibulum purus sed orci egestas,",
     content: "Aliquam vestibulum purus sed orci egestas, sed fermentum justo faucibus. Nulla id tristique justo. Nam hendrerit orci sit amet gravida dapibus. Curabitur sagittis ipsum a ultricies tincidunt. Cras fringilla, elit nec volutpat sollicitudin, libero ante rutrum libero, sed laoreet elit odio ut nulla. Mauris consequat dui vel velit placerat, non dictum orci bibendum. Integer congue risus vel sollicitudin laoreet. Phasellus gravida auctor ligula, ac lacinia purus faucibus in. Ut consequat risus quis lectus sodales, sed sollicitudin lorem tincidunt. Aenean sit amet erat volutpat, volutpat urna at, hendrerit ipsum. Duis nec ipsum at nisi sodales suscipit. Aliquam erat volutpat. Sed faucibus libero et vestibulum viverra. Fusce consectetur mollis erat, a efficitur urna maximus nec. Cras tempor erat id nunc cursus, at lobortis tortor fermentum. Nunc eget libero vel odio sollicitudin faucibus ac ac elit. Pellentesque sollicitudin, turpis eu vehicula feugiat, purus sapien feugiat lorem, non ultricies eros nulla eget nisi.",
     author: "Ali Huseynov",
     date: "2024-11-02",
   },
   {
     id: 3,
-    title: "Post 3",
+    title: "Fusce et magna libero. Aenean tempor suscipit dui in lacinia. Vivamus condimentum auctor gravida",
     content: "Fusce et magna libero. Aenean tempor suscipit dui in lacinia. Vivamus condimentum auctor gravida. Nunc ac ante nec nisl malesuada convallis. Sed auctor convallis orci in tempus. Integer maximus leo vel neque volutpat, sed maximus elit pretium. Curabitur interdum turpis libero, vel volutpat velit auctor sit amet. Proin lobortis odio at sapien vehicula placerat. Nulla sit amet nulla lorem. In maximus sem ac sollicitudin vestibulum. Aenean viverra ex vel lacus hendrerit, vel facilisis ante vehicula. Nunc malesuada orci sed felis cursus, et auctor magna placerat. Nam tincidunt velit id elit malesuada mollis. Nam imperdiet, sapien non facilisis fermentum, eros augue tincidunt ligula, in pharetra purus metus ac lorem. Sed pharetra suscipit sapien vel hendrerit. Etiam convallis ultricies nulla, vitae auctor nunc. Donec pretium suscipit turpis, sit amet viverra neque suscipit vel. Sed rhoncus ipsum ut ante vehicula, eget laoreet nisi pellentesque. Pellentesque consequat vitae orci id viverra. Etiam venenatis orci ut neque ultricies, eu egestas nisl aliquet.",
     author: "Ali Huseynov",
     date: "2024-11-03",
   },
   {
     id: 4,
-    title: "Post 4",
+    title: "Mauris sagittis, ligula eget vestibulum faucibus, ",
     content: "Mauris sagittis, ligula eget vestibulum faucibus, orci ante eleifend enim, eget aliquam orci felis a purus. Integer egestas, erat vitae tempor dignissim, purus velit egestas lectus, ut consequat enim lorem et eros. Nam mollis ipsum ligula, a luctus urna suscipit id. Sed accumsan magna ipsum, eget bibendum risus gravida id. Etiam congue risus ipsum, non ullamcorper odio mollis in. Integer ut tortor nec eros sodales maximus et ac ante. Phasellus vehicula lobortis nisi, eu placerat enim viverra id. Pellentesque vestibulum massa in dui sollicitudin suscipit. In lobortis magna eget eros scelerisque, sit amet tristique ipsum maximus. Aenean rhoncus, magna at gravida rhoncus, ante sem accumsan enim, id maximus nisi augue at augue. Aliquam ultricies volutpat lorem id condimentum. Cras euismod eros eget lectus convallis tempus. Sed in tortor at lectus gravida iaculis vel sit amet enim. Sed malesuada, lorem eget laoreet luctus, elit ipsum tempor risus, eget ullamcorper dui ligula vitae libero. In at justo placerat, varius eros at, cursus justo. Fusce sit amet magna et metus laoreet tempus.",
     author: "Ali Huseynov",
     date: "2024-11-04",
@@ -1233,7 +1233,7 @@ export const posts = [
   },
   {
     id: 6,
-    title: "Post 6",
+    title: "Sed tristique elit et lectus feugiat,",
     content: "Sed tristique elit et lectus feugiat, et pretium nunc iaculis. Cras egestas quam sit amet orci condimentum, non condimentum lectus sollicitudin. Donec mollis ipsum velit, ut cursus sapien volutpat eget. Nam mollis nibh eu velit consequat cursus. Integer sit amet fringilla ante, at tincidunt velit. Etiam sagittis tempor dui. Curabitur in varius elit. Integer nec laoreet risus. Suspendisse ut quam dolor. Donec at tristique nisi. Integer euismod ac augue vitae volutpat. Etiam pharetra, mi id tincidunt viverra, mauris lorem posuere risus, ac dictum lacus ante eu leo. Sed dapibus bibendum magna a rutrum. Nulla viverra sem nec elit faucibus, sed auctor tortor lacinia. Ut non est sem. Nam auctor convallis turpis at efficitur.",
     author: "Ali Huseynov",
     date: "2024-11-06",
