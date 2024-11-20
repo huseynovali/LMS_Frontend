@@ -5,3 +5,12 @@ export type sidebarlinks = {
   children?: { name: string; link: string }[];
   link?: string;
 };
+
+export type studentCourseData = {
+  id: number;
+  name: string;
+  teacher: string | null;
+  days: string;
+  time: string;
+
+};

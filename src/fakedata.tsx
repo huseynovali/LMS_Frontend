@@ -244,12 +244,14 @@ export const studentCourseData = [
     time: "12:00 - 14:00",
   },
   {
+    id: 5,
     name: "Fizika",
     teacher: "Michael Johnson",
     days: "2-4-6",
     time: "13:00 - 15:00",
   },
   {
+    id: 6,
     name: "Kimya",
     teacher: "Anna White",
     days: "1-3-5",
