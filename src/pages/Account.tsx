@@ -3,36 +3,16 @@ import cover from "../assets/cover.png";
 import { accoundData } from "../fakedata";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { MdOutlineCalendarMonth } from "react-icons/md";
-
-const tabs = {
-  student: [
-    {
-      name: "Məlumatlarım",
-      link: "aboutme",
-    },
-    {
-      name: "Ödənişlər",
-      link: "payment",
-    },
-    {
-      name: "Şifrəni dəyiş",
-      link: "editpassword",
-    },
-  ],
-  teacher: [
-    {
-      name: "Məlumatlarım",
-      link: "aboutme",
-    },
-    {
-      name: "Şifrəni dəyiş",
-      link: "editpassword",
-    },
-  ],
-};
+import { tabs } from "../constant/accoundTabs";
 
 function Account() {
-  const { role } = useParams<{ role: keyof typeof tabs }>();
+  const data: {
+    [key: string]: {
+      name: string;
+      link: string;
+    }[];
+  } = tabs;
+  const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
   const location = useLocation();
   const activetab =
     location.pathname.split("/")[location.pathname.split("/").length - 1];
@@ -48,7 +28,6 @@ function Account() {
                   {accoundData.name[0] + accoundData.surname[0]}
                 </span>
               </div>
-
               <div className="flex  relative  sm:top-0 lg:top-0 justify-between items-center">
                 <div>
                   <p className="text-2xl font-semibold">
@@ -82,7 +61,7 @@ function Account() {
             <div className="px-3 overflow-auto mt-5">
               <ul className="flex gap-x-4">
                 {role &&
-                  tabs[role]?.map((tab) => (
+                  data[role]?.map((tab) => (
                     <Link
                       to={`/${role}/profile/${tab.link}`}
                       key={tab.name}
@@ -100,7 +79,6 @@ function Account() {
           </div>
         </div>
       </div>
-
       <div className="mt-6">
         <Outlet />
       </div>

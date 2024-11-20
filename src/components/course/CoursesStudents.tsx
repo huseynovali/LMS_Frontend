@@ -37,7 +37,8 @@ function CoursesStudents() {
     <div className="p-4">
       <div className="flex justify-between">
         <h1 className="text-2xl font-semibold mb-4">
-          Tələbələr <span className="ml-5">{sortedStudents.length}</span>{" "}
+          Tələbələr{" "}
+          <span className="ml-5 text-xl">{sortedStudents.length}</span>{" "}
         </h1>
         {role == "teacher" && <AddAbsences allDates={allDates} />}
         {role == "admin" && checkedStudent == null && <AddStudent />}
@@ -66,9 +67,9 @@ function CoursesStudents() {
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               >
                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex relative">
-                  <div className="w-10 h-5"></div>
+                  {role == "admin" && <div className="w-10 h-5"></div>}
                   <div className="absolute">
-                    {!checkedStudent && (
+                    {!checkedStudent && role == "admin" && (
                       <input
                         type="checkbox"
                         name=""

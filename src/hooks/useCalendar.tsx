@@ -9,26 +9,30 @@ import {
   format,
   parseISO,
 } from "date-fns";
-
+type Event = {
+  name: string;
+  dates: string[];
+  teacher: string;
+  time: string;
+  days?: string;
+};
 export function useCalendar(
   eventsData: {
+    id: number;
     name: string;
     dates: string[];
     teacher: string;
     time: string;
-    days: string;
+    days?: string;
   }[]
 ) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedCourse, setSelectedCourse] = useState(null);
-
+  const [selectedCourse, setSelectedCourse] = useState<Event | null>(null);
   const startDate = startOfWeek(startOfMonth(currentMonth));
   const endDate = endOfWeek(endOfMonth(currentMonth));
-
   const prevMonth = () => setCurrentMonth((prev) => addDays(prev, -30));
   const nextMonth = () => setCurrentMonth((prev) => addDays(prev, 30));
-
-  const getEventsForDate = (date) => {
+  const getEventsForDate = (date: Date) => {
     return eventsData.filter((course) =>
       course.dates.some((courseDate) => isSameDay(parseISO(courseDate), date))
     );
@@ -46,13 +50,13 @@ export function useCalendar(
 
         days.push(
           <div
-            key={day}
+            key={day.toISOString()}
             className="h-32 mx-1/2 my-1 overflow-auto flex flex-col items-end justify-start cursor-pointer rounded-lg border p-2"
           >
             <span>{format(day, "d")}</span>
-            {events.map((event, index) => (
+            {events.map((event) => (
               <button
-                key={index}
+                key={event.id}
                 className="text-xs w-full px-3 py-2 rounded-lg bg-[#3E80F9] bg-opacity-20 my-1 relative"
                 onClick={() => setSelectedCourse(event)}
               >
@@ -64,7 +68,7 @@ export function useCalendar(
         day = addDays(day, 1);
       }
       rows.push(
-        <div className="grid grid-cols-7 gap-1" key={day}>
+        <div className="grid grid-cols-7 gap-1" key={day.toISOString()}>
           {days}
         </div>
       );

@@ -40,7 +40,7 @@ function Notification() {
       {notificationBox && notification && (
         <div
           ref={boxRef}
-          className="notificationBox absolute w-[300px] -left-[calc(100%_+_150px)]   lg:-left-[calc(100%_+_220px)] top-[calc(100%_+_10px)] border-[#D5DBE7] border rounded-lg"
+          className="notificationBox absolute w-[300px] z-30 -left-[calc(100%_+_150px)]   lg:-left-[calc(100%_+_220px)] top-[calc(100%_+_10px)] border-[#D5DBE7] border rounded-lg"
         >
           <div className="flex justify-between items-center bg-[#3E80F9] w-full  py-2 px-6 rounded-t-lg text-white text-[20px] font-semibold">
             <p>Notifications</p>

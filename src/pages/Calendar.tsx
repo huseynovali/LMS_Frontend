@@ -1,11 +1,9 @@
 import { format } from "date-fns";
-import { az } from "date-fns/locale"; // Azərbaycan dilini daxil edirik
+import { az } from "date-fns/locale"; 
 import { mycourses } from "../fakedata";
-
 import DateDetail from "../components/calendar/DateDetail";
 import { useCalendar } from "../hooks/useCalendar";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useParams } from "react-router";
 
 function Calendar() {
   const {
@@ -16,7 +14,6 @@ function Calendar() {
     selectedCourse,
     setSelectedCourse,
   } = useCalendar(mycourses);
-
   return (
     <div className="w-full  mx-auto   overflow-auto relative">
       <div className="w-[1000px] md:w-full ">

@@ -3,44 +3,18 @@ import { studentCourseData } from "../fakedata";
 import { Link } from "react-router-dom";
 import GroupTeacher from "../components/course/GroupTeacher";
 import EditCourse from "../components/course/EditCourse";
-
-const tabs = {
-  student: [
-    {
-      name: "Vesaitlər",
-      link: "resources",
-    },
-    {
-      name: "Qayıblar",
-      link: "absences",
-    },
-  ],
-  teacher: [
-    {
-      name: "Tələbələr",
-      link: "coursestudents",
-    },
-    {
-      name: "Vesaitlər",
-      link: "resources",
-    },
-  ],
-  admin: [
-    {
-      name: "Tələbələr",
-      link: "coursestudents",
-    },
-    {
-      name: "Vesaitlər",
-      link: "resources",
-    },
-  ],
-};
+import { tabs } from "../constant/accoundTabs";
 
 function CourseDetail() {
   const { id } = useParams();
-  const { role } = useParams<{ role: keyof typeof tabs }>();
+  const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
   const course = studentCourseData.find((course) => course.id == id);
+  const data: {
+    [key: string]: {
+      name: string;
+      link: string;
+    }[];
+  } = tabs;
   const location = useLocation();
   const activetab =
     location.pathname.split("/")[location.pathname.split("/").length - 1];
@@ -61,7 +35,7 @@ function CourseDetail() {
                   <button className="px-5 py-2 rounded-lg bg-red-400 text-white">
                     Sil
                   </button>
-                   <EditCourse course ={course}/>
+                  <EditCourse course={course} />
                 </div>
               )}
             </div>
@@ -73,7 +47,7 @@ function CourseDetail() {
         <div className="px-3 overflow-auto mt-5">
           <ul className="flex gap-x-4">
             {role &&
-              tabs[role]?.map((tab) => (
+              data[role]?.map((tab) => (
                 <Link
                   to={`/${role}/courses/${id}/${tab.link}`}
                   key={tab.name}
