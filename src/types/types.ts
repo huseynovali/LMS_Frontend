@@ -29,3 +29,16 @@ export type student = {
   faculty: string;
   admissionDate: string;
 };
+
+export type teacher = {
+  id: number;
+  name: string;
+  surname: string;
+  fatherName: string;
+  email: string;
+  phone: string;
+  address: string;
+  image: null;
+  filialID: number;
+  joinDate: string;
+};
