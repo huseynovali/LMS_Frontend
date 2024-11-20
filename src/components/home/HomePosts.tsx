@@ -6,7 +6,7 @@ function HomePosts() {
       <div className="grid grid-cols-12 gap-5 ">
         {posts.map((post) => (
           <Link
-            to={`/post/${post.id}`}
+            to={`post/${post.id}`}
             key={post.id}
             className="col-span-12 md:col-span-6 lg:col-span-3  relative border p-5 rounded-md shadow-sm hover:scale-[1.03]"
           >

@@ -21,6 +21,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import LoginAdmin from "../pages/LoginAdmin";
 import AuthRouter from "./AuthRouter";
+import PostDetail from "../components/home/PostDetail";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
             index: true,
             element: <Home />,
           },
+          
           {
             path: "profile",
             element: <Account />,
@@ -102,6 +104,9 @@ const router = createBrowserRouter([
           {
             path: "add-question",
             element: <AddQuestion />,
+          },{
+            path: "post/:id",
+            element: <PostDetail />,
           },
         ],
       },
