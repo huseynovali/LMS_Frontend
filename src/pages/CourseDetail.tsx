@@ -8,7 +8,7 @@ import { tabs } from "../constant/accoundTabs";
 function CourseDetail() {
   const { id } = useParams();
   const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
-  const course = studentCourseData.find((course) => course.id == id);
+  const course = studentCourseData.find((course) => course.id === Number(id));
   const data: {
     [key: string]: {
       name: string;
