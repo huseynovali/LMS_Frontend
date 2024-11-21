@@ -1,130 +1,90 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
-import Account from "../pages/Account";
-import AboutMe from "../components/profile/AboutMe";
-import MyPayments from "../components/profile/MyPayments";
-import EditPassword from "../components/profile/EditPassword";
-import Courses from "../pages/Courses";
-import CourseDetail from "../pages/CourseDetail";
-import Resources from "../components/course/Resources";
-import Absences from "../components/course/Absences";
-import CoursesStudents from "../components/course/CoursesStudents";
-import CreateGroup from "../pages/CreateGroup";
-import Students from "../pages/Students";
-import StudentDetail from "../pages/StudentDetail";
-import Teachers from "../pages/Teachers";
-import TeacherDetail from "../pages/TeacherDetail";
-import Calendar from "../pages/Calendar";
-import AddQuestion from "../pages/AddQuestion";
-import Login from "../pages/Login";
-import Home from "../pages/Home";
-import LoginAdmin from "../pages/LoginAdmin";
 import AuthRouter from "./AuthRouter";
-import PostDetail from "../components/home/PostDetail";
+
+import { lazy, Suspense } from "react";
+import Page404 from "../pages/Page404";
+import Loading from "../pages/Loading";
+
+const Account = lazy(() => import("../pages/Account"));
+const AboutMe = lazy(() => import("../components/profile/AboutMe"));
+const MyPayments = lazy(() => import("../components/profile/MyPayments"));
+const EditPassword = lazy(() => import("../components/profile/EditPassword"));
+const Courses = lazy(() => import("../pages/Courses"));
+const CourseDetail = lazy(() => import("../pages/CourseDetail"));
+const Resources = lazy(() => import("../components/course/Resources"));
+const Absences = lazy(() => import("../components/course/Absences"));
+const CoursesStudents = lazy(() => import("../components/course/CoursesStudents"));
+const CreateGroup = lazy(() => import("../pages/CreateGroup"));
+const Students = lazy(() => import("../pages/Students"));
+const StudentDetail = lazy(() => import("../pages/StudentDetail"));
+const Teachers = lazy(() => import("../pages/Teachers"));
+const TeacherDetail = lazy(() => import("../pages/TeacherDetail"));
+const Calendar = lazy(() => import("../pages/Calendar"));
+const AddQuestion = lazy(() => import("../pages/AddQuestion"));
+const Login = lazy(() => import("../pages/Login"));
+const Home = lazy(() => import("../pages/Home"));
+const LoginAdmin = lazy(() => import("../pages/LoginAdmin"));
+const PostDetail = lazy(() => import("../components/home/PostDetail"));
+
+const SuspenseWrapper = (Component: JSX.Element) => (
+  <Suspense fallback={<Loading/>}>{Component}</Suspense>
+);
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/:role",
     element: <PrivateRoute />,
     children: [
       {
         path: "/:role",
         element: <MainLayout />,
         children: [
-          {
-            index: true,
-            element: <Home />,
-          },
-          
+          { index: true, element: SuspenseWrapper(<Home />) },
+          { path: "superadmin", element: <div>Superadmin Home</div> },
           {
             path: "profile",
-            element: <Account />,
+            element: SuspenseWrapper(<Account />),
             children: [
-              {
-                path: "aboutme",
-                element: <AboutMe />,
-              },
-              {
-                path: "payment",
-                element: <MyPayments />,
-              },
-              {
-                path: "editpassword",
-                element: <EditPassword />,
-              },
+              { path: "aboutme", element: SuspenseWrapper(<AboutMe />) },
+              { path: "payment", element: SuspenseWrapper(<MyPayments />) },
+              { path: "editpassword", element: SuspenseWrapper(<EditPassword />) },
             ],
           },
-          {
-            path: "courses",
-            element: <Courses />,
-          },
-          {
-            path: "calendar",
-            element: <Calendar />,
-          },
+          { path: "courses", element: SuspenseWrapper(<Courses />) },
+          { path: "calendar", element: SuspenseWrapper(<Calendar />) },
           {
             path: "courses/:id",
-            element: <CourseDetail />,
+            element: SuspenseWrapper(<CourseDetail />),
             children: [
-              {
-                path: "resources",
-                element: <Resources />,
-              },
-              {
-                path: "absences",
-                element: <Absences />,
-              },
-              {
-                path: "coursestudents",
-                element: <CoursesStudents />,
-              },
+              { path: "resources", element: SuspenseWrapper(<Resources />) },
+              { path: "absences", element: SuspenseWrapper(<Absences />) },
+              { path: "coursestudents", element: SuspenseWrapper(<CoursesStudents />) },
             ],
           },
-          {
-            path: "create-group",
-            element: <CreateGroup />,
-          },
-          {
-            path: "students",
-            element: <Students />,
-          },
-          {
-            path: "student/:id",
-            element: <StudentDetail />,
-          },
-          {
-            path: "teachers",
-            element: <Teachers />,
-          },
-          {
-            path: "teacher/:id",
-            element: <TeacherDetail />,
-          },
-          {
-            path: "add-question",
-            element: <AddQuestion />,
-          },{
-            path: "post/:id",
-            element: <PostDetail />,
-          },
+          { path: "create-group", element: SuspenseWrapper(<CreateGroup />) },
+          { path: "students", element: SuspenseWrapper(<Students />) },
+          { path: "student/:id", element: SuspenseWrapper(<StudentDetail />) },
+          { path: "teachers", element: SuspenseWrapper(<Teachers />) },
+          { path: "teacher/:id", element: SuspenseWrapper(<TeacherDetail />) },
+          { path: "add-question", element: SuspenseWrapper(<AddQuestion />) },
+          { path: "post/:id", element: SuspenseWrapper(<PostDetail />) },
         ],
       },
     ],
   },
   {
-    path: "login",
+    path: "/login",
     element: <AuthRouter />,
     children: [
-      {
-        index: true,
-        element: <Login />,
-      },
-      {
-        path: ":role",
-        element: <LoginAdmin />,
-      },
+      { index: true, element: SuspenseWrapper(<Login />) },
+      { path: ":role", element: SuspenseWrapper(<LoginAdmin />) },
     ],
+  },
+  {
+    path: "*",
+    element: <Page404 />,
   },
 ]);
 

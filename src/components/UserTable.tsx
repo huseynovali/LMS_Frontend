@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { student } from "../types/types";
+import { teacher } from "../types/types";
 
-function StudentTable({
+function UserTable({
   datapaginate,
   cellClass,
 }: {
@@ -11,8 +10,9 @@ function StudentTable({
 }) {
   return (
     <div>
+      {" "}
       <table
-        aria-label="List of students"
+        aria-label="List of teachers"
         className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
       >
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -36,21 +36,21 @@ function StudentTable({
           </tr>
         </thead>
         <tbody>
-          {datapaginate.map((student: student) => (
+          {datapaginate.map((teacher: teacher) => (
             <tr
-              key={student.id}
+              key={teacher.id}
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
             >
               <td className={cellClass}>
-                {student.name} {student.surname}
+                {teacher.name} {teacher.surname}
               </td>
-              <td className={cellClass}>{student.email}</td>
-              <td className={cellClass}>{student.phone}</td>
-              <td className={cellClass}>{student.address}</td>
-              <td className={cellClass}>{student.admissionDate}</td>
+              <td className={cellClass}>{teacher.email}</td>
+              <td className={cellClass}>{teacher.phone}</td>
+              <td className={cellClass}>{teacher.address}</td>
+              <td className={cellClass}>{teacher.joinDate}</td>
               <td className={cellClass}>
                 <Link
-                  to={`/admin/student/${student.id}`}
+                  to={`/admin/teacher/${teacher.id}`}
                   className="text-blue-500"
                 >
                   Daha ətraflı
@@ -64,4 +64,4 @@ function StudentTable({
   );
 }
 
-export default StudentTable;
+export default UserTable;

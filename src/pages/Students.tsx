@@ -1,8 +1,7 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { allStudents } from "../fakedata";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import StudentTable from "../components/StudentTable";
+import UserTable from "../components/UserTable";
 
 function Students() {
   const data = allStudents;
@@ -49,8 +48,8 @@ function Students() {
       >
         Excel olaraq yüklə
       </button>
-      <StudentTable datapaginate={datapaginate} cellClass={cellClass} />
-      
+      <UserTable datapaginate={datapaginate} cellClass={cellClass} />
+
       <div className="flex items-center justify-center space-x-2 mt-4">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

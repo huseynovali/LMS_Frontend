@@ -1,10 +1,5 @@
 import { PiGraduationCapLight } from "react-icons/pi";
-import {
-  FaUser,
-  FaBook,
-  FaPlus,
-  FaRegCalendarAlt,
-} from "react-icons/fa";
+import { FaUser, FaBook, FaPlus, FaRegCalendarAlt, FaRegBuilding } from "react-icons/fa";
 import { MdQuiz } from "react-icons/md";
 import { id } from "date-fns/locale";
 
@@ -26,29 +21,30 @@ const sidebarLinksData = {
   teacher: [
     {
       name: "Qruplar",
-      idName  : "courses",
+      idName: "courses",
       link: "/teacher/courses",
       icon: <FaBook size={24} />,
     },
 
     {
       name: "Sinaq Yarat",
-      idName : "create-quiz",
+      idName: "create-quiz",
       link: "/teacher/create-quiz",
       icon: <MdQuiz size={24} />,
     },
 
     {
       name: "Cədvəl",
-      idName : "calendar",
+      idName: "calendar",
       link: "/teacher/calendar",
       icon: <FaRegCalendarAlt size={24} />,
-    },{
-      name : "Sual əlavə et",
-      idName : "add-question",
-      link : "/teacher/add-question",
-      icon : <FaPlus size={24} />
-    }
+    },
+    {
+      name: "Sual əlavə et",
+      idName: "add-question",
+      link: "/teacher/add-question",
+      icon: <FaPlus size={24} />,
+    },
   ],
   admin: [
     {
@@ -74,6 +70,14 @@ const sidebarLinksData = {
       idName: "create-group",
       link: "/admin/create-group",
       icon: <FaPlus size={24} />,
+    },
+  ],
+  superadmin: [
+    {
+      name: "Filiallar",
+      idName: "branches",
+      link: "/superadmin/branches",
+      icon: <FaRegBuilding  size={24} />,
     },
   ],
 };

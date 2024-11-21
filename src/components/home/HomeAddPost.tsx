@@ -44,14 +44,14 @@ function HomeAddPost() {
   ];
   return (
     <div className="bg-white  px-5 py-3 rounded-lg  overflow-hidden mb-5">
-      <ReactQuill
+      {/* <ReactQuill
         theme="snow"
         value={post}
         onChange={setPost}
         formats={formats}
         modules={modules}
         className="w-full"
-      />
+      /> */}
 
       <button className="btn px-3 py-2 bg-[#3E80F9] text-white rounded-lg mt-3">
         Paylaş

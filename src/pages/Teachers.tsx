@@ -1,7 +1,8 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { teachers } from "../fakedata";
 import { useState } from "react";
-import TeacherTable from "../components/TeacherTable";
+import UserTable from "../components/UserTable";
+
 
 function Teachers() {
   const data = teachers;
@@ -49,7 +50,7 @@ function Teachers() {
         Excel olaraq yüklə
       </button>
 
-      <TeacherTable datapaginate={datapaginate} cellClass={cellClass} />
+      <UserTable datapaginate={datapaginate} cellClass={cellClass} />
 
       <div className="flex items-center justify-center space-x-2 mt-4">
         <button
