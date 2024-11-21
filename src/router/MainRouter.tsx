@@ -15,7 +15,9 @@ const Courses = lazy(() => import("../pages/Courses"));
 const CourseDetail = lazy(() => import("../pages/CourseDetail"));
 const Resources = lazy(() => import("../components/course/Resources"));
 const Absences = lazy(() => import("../components/course/Absences"));
-const CoursesStudents = lazy(() => import("../components/course/CoursesStudents"));
+const CoursesStudents = lazy(
+  () => import("../components/course/CoursesStudents")
+);
 const CreateGroup = lazy(() => import("../pages/CreateGroup"));
 const Students = lazy(() => import("../pages/Students"));
 const StudentDetail = lazy(() => import("../pages/StudentDetail"));
@@ -29,7 +31,7 @@ const LoginAdmin = lazy(() => import("../pages/LoginAdmin"));
 const PostDetail = lazy(() => import("../components/home/PostDetail"));
 
 const SuspenseWrapper = (Component: JSX.Element) => (
-  <Suspense fallback={<Loading/>}>{Component}</Suspense>
+  <Suspense fallback={<Loading />}>{Component}</Suspense>
 );
 
 const router = createBrowserRouter([
@@ -42,14 +44,16 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
           { index: true, element: SuspenseWrapper(<Home />) },
-          { path: "superadmin", element: <div>Superadmin Home</div> },
           {
             path: "profile",
             element: SuspenseWrapper(<Account />),
             children: [
               { path: "aboutme", element: SuspenseWrapper(<AboutMe />) },
               { path: "payment", element: SuspenseWrapper(<MyPayments />) },
-              { path: "editpassword", element: SuspenseWrapper(<EditPassword />) },
+              {
+                path: "editpassword",
+                element: SuspenseWrapper(<EditPassword />),
+              },
             ],
           },
           { path: "courses", element: SuspenseWrapper(<Courses />) },
@@ -60,7 +64,10 @@ const router = createBrowserRouter([
             children: [
               { path: "resources", element: SuspenseWrapper(<Resources />) },
               { path: "absences", element: SuspenseWrapper(<Absences />) },
-              { path: "coursestudents", element: SuspenseWrapper(<CoursesStudents />) },
+              {
+                path: "coursestudents",
+                element: SuspenseWrapper(<CoursesStudents />),
+              },
             ],
           },
           { path: "create-group", element: SuspenseWrapper(<CreateGroup />) },
