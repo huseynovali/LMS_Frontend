@@ -3,6 +3,7 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { PiGraduationCapFill } from "react-icons/pi";
 import FilialsChartDesktop from "../components/superadminPanel/FilialsChartDesktop";
 import FilialChartMobile from "../components/superadminPanel/FilialChartMobile";
+import FilialsProfit from "../components/superadminPanel/FilialsProfit";
 
 function SuperAdminHome() {
   return (
@@ -44,6 +45,9 @@ function SuperAdminHome() {
         <div className="col-span-12 lg:hidden mt-5">
           <FilialChartMobile />
         </div>
+      </div>
+      <div className="mt-10">
+        <FilialsProfit />
       </div>
     </div>
   );
