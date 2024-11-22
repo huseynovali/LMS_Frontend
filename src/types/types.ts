@@ -42,3 +42,10 @@ export type teacher = {
   filialID: number;
   joinDate: string;
 };
+
+export type MonthProfitData = {
+  month: string;
+  filials: {
+    [key: string]: number;
+  }[];
+};

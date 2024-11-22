@@ -39,7 +39,10 @@ function SuperAdminHome() {
             <span className="text-[#667797]">Müəllimlər</span>
           </div>
         </div>
-        <div className="hidden lg:block lg:col-span-6">
+        <div className="hidden lg:block lg:col-span-6 bg-white relative">
+          <h1 className="text-xl font-bold  absolute top-5 left-5">
+            Tələbə və Müəllim Sayı
+          </h1>
           <FilialsChartDesktop />
         </div>
         <div className="col-span-12 lg:hidden mt-5">

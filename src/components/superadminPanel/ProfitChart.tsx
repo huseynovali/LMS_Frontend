@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BarChart,
   Bar,
@@ -9,36 +8,9 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { MonthProfitData } from "../../types/types";
 
-const data = [
-  {
-    month: "Yanvar",
-    filials: [{ Genclik: 4000 }, { "28 May": 2400 }, { Nerimanov: 2200 }],
-  },
-  {
-    month: "Fevral",
-    filials: [{ Genclik: 3000 }, { "28 May": 1398 }, { Nerimanov: 1800 }],
-  },
-  {
-    month: "Mart",
-    filials: [{ Genclik: 2000 }, { "28 May": 9800 }, { Nerimanov: 3000 }],
-  },
-  {
-    month: "Aprel",
-    filials: [{ Genclik: 2780 }, { "28 May": 3908 }, { Nerimanov: 2500 }],
-  },
-  {
-    month: "Dekabr",
-    filials: [
-      { Genclik: 1890 },
-      { "28 May": 4800 },
-      { Nerimanov: 3100 },
-      { "20 Yanvar": 4000 },
-    ],
-  },
-];
-
-function ProfitChart() {
+function ProfitChart({ data }: { data: MonthProfitData[] }) {
   const keys = Array.from(
     new Set(
       data.flatMap((item) =>
@@ -59,15 +31,7 @@ function ProfitChart() {
   return (
     <div style={{ width: "100%", height: 400 }}>
       <ResponsiveContainer>
-        <BarChart
-          data={formattedData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
+        <BarChart data={formattedData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />
@@ -82,8 +46,7 @@ function ProfitChart() {
   );
 }
 
-// Rənglərin təyin olunması
-function getBarColor(index) {
+function getBarColor(index: number) {
   const colors = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#d84c84"];
   return colors[index % colors.length];
 }
