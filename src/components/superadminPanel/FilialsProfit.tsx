@@ -47,13 +47,18 @@ function FilialsProfit() {
     },
     {
       month: "Aprel",
-      filials: [{ Genclik: 780 }, { "28 May": 908 }, { Nerimanov: 500 }, { "8 Mart": 3000 }],
+      filials: [
+        { Genclik: 780 },
+        { "28 May": 908 },
+        { Nerimanov: 500 },
+        { "8 Mart": 3000 },
+      ],
     },
     {
       month: "Dekabr",
       filials: [
         { Genclik: 190 },
-        { "28 May": 4800 },
+        { "28 May": 400 },
         { Nerimanov: 300 },
         { "20 Yanvar": 400 },
         { "8 Mart": 3000 },
@@ -75,7 +80,10 @@ function FilialsProfit() {
       <div className="w-full flex justify-between items-center  px-10 py-10">
         <h1 className="text-xl font-bold">Ayliq Gelir</h1>
 
-        <select className="border border-[#E1E8F1] rounded-lg px-3 py-2 ml-5" onChange={(e)=>setSelectedYear(e.target.value)} >
+        <select
+          className="border border-[#E1E8F1] rounded-lg px-3 py-2 ml-5"
+          onChange={(e) => setSelectedYear(e.target.value)}
+        >
           <option value={"2021"}>2021</option>
           <option value={"2022"}>2022</option>
         </select>

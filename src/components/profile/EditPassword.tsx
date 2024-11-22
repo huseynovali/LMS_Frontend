@@ -1,5 +1,6 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
+import MainContainer from "../CustomComponent/MainContainer";
 
 const initialValues = {
   newPassword: "",
@@ -16,7 +17,7 @@ const passwordSchema = yup.object().shape({
 
 function EditPassword() {
   return (
-    <div className="w-full bg-white rounded-lg">
+    <MainContainer>
       <div className="p-5 border-b border-[#dee2e6]">
         <h1 className="text-2xl font-semibold">Şifrəni Dəyiş</h1>
       </div>
@@ -25,7 +26,6 @@ function EditPassword() {
           initialValues={initialValues}
           validationSchema={passwordSchema}
           onSubmit={(values, actions) => {
-            
             alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
           }}
@@ -85,7 +85,7 @@ function EditPassword() {
           )}
         </Formik>
       </div>
-    </div>
+    </MainContainer>
   );
 }
 

@@ -1,9 +1,9 @@
-import React from "react";
 import { accoundData } from "../../fakedata";
+import MainContainer from "../CustomComponent/MainContainer";
 
 function AboutMe() {
   return (
-    <div className="w-full bg-white rounded-lg">
+    <MainContainer>
       <div className="p-6">
         <h1 className="text-2xl font-semibold">Məlumatlarım</h1>
 
@@ -40,7 +40,7 @@ function AboutMe() {
           )}
         </div>
       </div>
-    </div>
+    </MainContainer>
   );
 }
 

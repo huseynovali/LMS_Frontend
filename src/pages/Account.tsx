@@ -1,4 +1,10 @@
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import cover from "../assets/cover.png";
 import { accoundData } from "../fakedata";
 import { MdOutlineLocationOn } from "react-icons/md";
@@ -6,13 +12,18 @@ import { MdOutlineCalendarMonth } from "react-icons/md";
 import { tabs } from "../constant/accoundTabs";
 
 function Account() {
+  const { role } = useParams<{ role: "student" | "teacher" }>();
+
+  if (role !== "student" && role !== "teacher") {
+    return <Navigate to={`/${role}`} />;
+  }
   const data: {
     [key: string]: {
       name: string;
       link: string;
     }[];
   } = tabs;
-  const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
+
   const location = useLocation();
   const activetab =
     location.pathname.split("/")[location.pathname.split("/").length - 1];

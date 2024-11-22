@@ -1,12 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { studentCourseData as studentdata } from "../fakedata";
 import { studentCourseData } from "../types/types";
+import MainContainer from "../components/CustomComponent/MainContainer";
 
 function Courses() {
   const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
   const data: studentCourseData[] = studentdata;
   return (
-    <div className="w-full bg-white p-5 rounded-lg">
+    <MainContainer>
       <h1 className="text-2xl font-semibold">Dərslər</h1>
       <div>
         <ul className="grid grid-cols-12 gap-x-5 ">
@@ -32,7 +33,7 @@ function Courses() {
           ))}
         </ul>
       </div>
-    </div>
+    </MainContainer>
   );
 }
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import GroupTeacher from "../components/course/GroupTeacher";
 import EditCourse from "../components/course/EditCourse";
 import { tabs } from "../constant/accoundTabs";
+import MainContainer from "../components/CustomComponent/MainContainer";
 
 function CourseDetail() {
   const { id } = useParams();
@@ -20,7 +21,7 @@ function CourseDetail() {
     location.pathname.split("/")[location.pathname.split("/").length - 1];
   return (
     <div>
-      <div className="w-full bg-white rounded-lg">
+      <MainContainer>
         <div className="p-5 flex justify-between">
           <div>
             <h1 className="text-2xl font-semibold my-2">{course?.name}</h1>
@@ -60,11 +61,11 @@ function CourseDetail() {
               ))}
           </ul>
         </div>
-      </div>
+      </MainContainer>
 
-      <div className="w-full bg-white rounded-lg mt-6">
+      <MainContainer className="mt-5">
         <Outlet />
-      </div>
+      </MainContainer>
     </div>
   );
 }

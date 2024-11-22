@@ -63,17 +63,20 @@ function Profile() {
 
           <div>
             <ul>
-              <li>
-                <Link
-                  to={`/${role}/profile/aboutme`}
-                  className="flex items-center gap-x-2 py-3 px-5"
-                >
-                  <BsGear size={20} className="text-[#487FFF]" />
-                  <p className="text-[15px] font-medium text-[#667797]">
-                    Accound Setting
-                  </p>
-                </Link>
-              </li>
+              {role === "student" ||
+                (role === "teacher" && (
+                  <li>
+                    <Link
+                      to={`/${role}/profile/aboutme`}
+                      className="flex items-center gap-x-2 py-3 px-5"
+                    >
+                      <BsGear size={20} className="text-[#487FFF]" />
+                      <p className="text-[15px] font-medium text-[#667797]">
+                        Accound Setting
+                      </p>
+                    </Link>
+                  </li>
+                ))}
 
               <li>
                 <button className="flex items-center gap-x-2 py-3 px-5">

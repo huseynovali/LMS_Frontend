@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import MainContainer from "../components/CustomComponent/MainContainer";
 
 function AddQuestion() {
   const [question, setQuestion] = useState("");
@@ -80,7 +81,7 @@ function AddQuestion() {
   };
 
   return (
-    <div className="w-full rounded-lg bg-white p-5">
+    <MainContainer>
       <div className="border-b pb-5 mb-5">
         <div className="flex justify-between mb-3">
           <p className="text-lg font-semibold mb-2">Sual</p>
@@ -136,7 +137,7 @@ function AddQuestion() {
       >
         Əlavə et
       </button>
-    </div>
+    </MainContainer>
   );
 }
 
