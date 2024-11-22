@@ -2,7 +2,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { teachers } from "../fakedata";
 import { useState } from "react";
 import UserTable from "../components/UserTable";
-
+import CreateTeacher from "../components/admin/CreateTeacher";
 
 function Teachers() {
   const data = teachers;
@@ -43,13 +43,15 @@ function Teachers() {
 
   return (
     <div className="overflow-x-auto">
-      <button
-        onClick={exportToCSV}
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-      >
-        Excel olaraq yüklə
-      </button>
-
+      <div className="flex justify-between items-center">
+        <button
+          onClick={exportToCSV}
+          className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        >
+          Excel olaraq yüklə
+        </button>
+        <CreateTeacher />
+      </div>
       <UserTable datapaginate={datapaginate} cellClass={cellClass} />
 
       <div className="flex items-center justify-center space-x-2 mt-4">
