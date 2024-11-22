@@ -144,7 +144,7 @@ function CreateTeacher() {
                       disabled={isSubmitting}
                       className="w-1/3 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
                     >
-                      Göndər
+                      Təsdiqle
                     </button>
                   </div>
                 </Form>
