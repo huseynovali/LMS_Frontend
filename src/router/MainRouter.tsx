@@ -6,7 +6,7 @@ import AuthRouter from "./AuthRouter";
 import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
-
+import FilialDetail from "../pages/FilialDetail";
 
 const Account = lazy(() => import("../pages/Account"));
 const AboutMe = lazy(() => import("../components/profile/AboutMe"));
@@ -46,10 +46,14 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
           { index: true, element: SuspenseWrapper(<Home />) },
-         {
-          path:"branches",
-          element: SuspenseWrapper(<Filials />),
-         },
+          {
+            path: "branches",
+            element: SuspenseWrapper(<Filials />),
+          },
+          {
+            path: "filialsdetail/:id",
+            element: SuspenseWrapper(<FilialDetail />),
+          },
           {
             path: "profile",
             element: SuspenseWrapper(<Account />),

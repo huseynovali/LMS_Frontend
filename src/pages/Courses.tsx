@@ -1,11 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { studentCourseData as studentdata } from "../fakedata";
 import { studentCourseData } from "../types/types";
 import MainContainer from "../components/CustomComponent/MainContainer";
 
 function Courses() {
-  const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
+  const { role } = useParams<{
+    role: "student" | "teacher" | "admin" | "superadmin";
+  }>();
   const data: studentCourseData[] = studentdata;
+
   return (
     <MainContainer>
       <h1 className="text-2xl font-semibold">Dərslər</h1>
