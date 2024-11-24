@@ -8,6 +8,7 @@ import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
 import FilialDetail from "../pages/FilialDetail";
 import ChangePasswordForm from "../components/ChangePasswordForm";
+import FilialAdmins from "../pages/FilialAdmins";
 
 const Account = lazy(() => import("../pages/Account"));
 const AboutMe = lazy(() => import("../components/profile/AboutMe"));
@@ -88,6 +89,7 @@ const router = createBrowserRouter([
           { path: "teacher/:id", element: SuspenseWrapper(<TeacherDetail />) },
           { path: "add-question", element: SuspenseWrapper(<AddQuestion />) },
           { path: "post/:id", element: SuspenseWrapper(<PostDetail />) },
+          { path: "filialadmins", element: SuspenseWrapper(<FilialAdmins />) },
         ],
       },
     ],

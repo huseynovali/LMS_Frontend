@@ -1,7 +1,13 @@
 import { PiGraduationCapLight } from "react-icons/pi";
-import { FaUser, FaBook, FaPlus, FaRegCalendarAlt, FaRegBuilding } from "react-icons/fa";
+import {
+  FaUser,
+  FaBook,
+  FaPlus,
+  FaRegCalendarAlt,
+  FaRegBuilding,
+  FaUsers,
+} from "react-icons/fa";
 import { MdQuiz } from "react-icons/md";
-import { id } from "date-fns/locale";
 
 const sidebarLinksData = {
   student: [
@@ -71,13 +77,19 @@ const sidebarLinksData = {
       link: "/admin/create-group",
       icon: <FaPlus size={24} />,
     },
+    {
+      name: "Adminlər",
+      idName: "filialadmins",
+      link: "/admin/filialadmins",
+      icon: <FaUsers size={24} />,
+    },
   ],
   superadmin: [
     {
       name: "Filiallar",
       idName: "branches",
       link: "/superadmin/branches",
-      icon: <FaRegBuilding  size={24} />,
+      icon: <FaRegBuilding size={24} />,
     },
   ],
 };

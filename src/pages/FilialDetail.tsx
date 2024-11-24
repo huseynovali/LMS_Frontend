@@ -19,7 +19,7 @@ function FilialDetail() {
             <h1 className="text-lg font-bold mb-3">Adminlər</h1>
             {data.admins.map((admin) => (
               <Link
-                to={`/superadmin/admins/${admin.id}`}
+                to={`/superadmin/admin/${admin.id}`}
                 key={admin.id}
                 className="flex gap-x-2 my-1 hover:scale-[1.02] items-center"
               >
