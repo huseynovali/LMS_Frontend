@@ -49,3 +49,14 @@ export type MonthProfitData = {
     [key: string]: number;
   }[];
 };
+
+export type admin = {
+  id: number;
+  name: string;
+  surname: string;
+  fatherName: string;
+  email: string;
+  phone: string;
+  address: string;
+  joinDate: string;
+};

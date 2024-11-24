@@ -47,7 +47,7 @@ function Sidebar({
         <nav
           className={`fixed left-0 top-0 h-full border-r bg-white border-[#D5DBE7] z-20 transform ${
             open ? "translate-x-0" : "-translate-x-full"
-          }  w-64 lg:translate-x-0 lg:relative h-screen p-5`}
+          } transition-all w-64 lg:translate-x-0 lg:relative h-screen p-5`}
         >
           <Link to={`/${params.role}`} className="w-full flex justify-center">
             <img
