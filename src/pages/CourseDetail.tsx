@@ -3,7 +3,7 @@ import { studentCourseData } from "../fakedata";
 import { Link } from "react-router-dom";
 import GroupTeacher from "../components/course/GroupTeacher";
 import EditCourse from "../components/course/EditCourse";
-import { tabs } from "../constant/accoundTabs";
+import { tabs } from "../constant/courseDetailTabs";
 import MainContainer from "../components/CustomComponent/MainContainer";
 
 function CourseDetail() {
@@ -45,7 +45,7 @@ function CourseDetail() {
             {role == "admin" && <GroupTeacher course={course} role={role} />}
           </div>
         </div>
-        <div className="px-3 overflow-auto mt-5">
+        <div className="px-3 overflow-auto mt-5 -mb-5">
           <ul className="flex gap-x-4">
             {role &&
               data[role]?.map((tab) => (
