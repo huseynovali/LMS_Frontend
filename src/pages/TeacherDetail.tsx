@@ -13,7 +13,7 @@ function TeacherDetail() {
 
   return (
     <div>
-      <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+      <div className=" mx-auto p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <div className="flex items-center space-x-6 justify-between">
           <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-3xl text-gray-500">
             <span>
@@ -21,13 +21,18 @@ function TeacherDetail() {
               {teacher.surname.charAt(0)}
             </span>
           </div>
+          <div>
+            <button
+              onClick={deleteTeacher}
+              className="px-3 py-2 bg-red-400 text-white rounded-lg"
+            >
+              Sil
+            </button>
 
-          <button
-            onClick={deleteTeacher}
-            className="px-3 py-2 bg-red-500 text-white rounded-lg"
-          >
-            Sil
-          </button>
+            <button className="px-3 py-2 bg-gray-400 text-white rounded-lg ml-3">
+              Blok et !
+            </button>
+          </div>
         </div>
 
         <div className="py-10">

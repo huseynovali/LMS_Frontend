@@ -4,9 +4,11 @@ import { teacher } from "../types/types";
 function UserTable({
   datapaginate,
   cellClass,
+  role
 }: {
   datapaginate: any;
   cellClass: string;
+  role: string;
 }) {
   return (
     <div>
@@ -36,21 +38,21 @@ function UserTable({
           </tr>
         </thead>
         <tbody>
-          {datapaginate.map((teacher: teacher) => (
+          {datapaginate.map((user: teacher) => (
             <tr
-              key={teacher.id}
+              key={user.id}
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
             >
               <td className={cellClass}>
-                {teacher.name} {teacher.surname}
+                {user.name} {user.surname}
               </td>
-              <td className={cellClass}>{teacher.email}</td>
-              <td className={cellClass}>{teacher.phone}</td>
-              <td className={cellClass}>{teacher.address}</td>
-              <td className={cellClass}>{teacher.joinDate}</td>
+              <td className={cellClass}>{user.email}</td>
+              <td className={cellClass}>{user.phone}</td>
+              <td className={cellClass}>{user.address}</td>
+              <td className={cellClass}>{user.joinDate}</td>
               <td className={cellClass}>
                 <Link
-                  to={`/admin/teacher/${teacher.id}`}
+                  to={`/admin/${role}/${user.id}`}
                   className="text-blue-500"
                 >
                   Daha ətraflı

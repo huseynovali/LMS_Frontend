@@ -12,9 +12,7 @@ function TeacherDetailForm() {
     email: teacher.email || "",
     phone: teacher.phone || "",
     address: teacher.address || "",
-    filialID: teacher.filialID || "",
     joinDate: teacher.joinDate || "",
-    image: teacher.image || "",
   };
 
   const validationSchema = Yup.object({
@@ -32,7 +30,6 @@ function TeacherDetailForm() {
     { id: "email", label: "Email", placeholder: "Email" },
     { id: "phone", label: "Telefon", placeholder: "Telefon" },
     { id: "address", label: "Ünvan", placeholder: "Ünvan" },
-    { id: "filialID", label: "Filial ID", placeholder: "Filial ID" },
     { id: "joinDate", label: "Qoşulma Tarixi", placeholder: "Qoşulma Tarixi" },
   ];
 

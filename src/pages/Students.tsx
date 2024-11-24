@@ -53,7 +53,7 @@ function Students() {
       </button>
         <CreateStudent />
       </div>
-      <UserTable datapaginate={datapaginate} cellClass={cellClass} />
+      <UserTable datapaginate={datapaginate} cellClass={cellClass} role={"student"} />
 
       <div className="flex items-center justify-center space-x-2 mt-4">
         <button

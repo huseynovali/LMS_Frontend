@@ -7,11 +7,12 @@ import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
 import FilialDetail from "../pages/FilialDetail";
+import ChangePasswordForm from "../components/ChangePasswordForm";
 
 const Account = lazy(() => import("../pages/Account"));
 const AboutMe = lazy(() => import("../components/profile/AboutMe"));
 const MyPayments = lazy(() => import("../components/profile/MyPayments"));
-const EditPassword = lazy(() => import("../components/profile/EditPassword"));
+//const EditPassword = lazy(() => import("../components/profile/EditPassword"));
 const Courses = lazy(() => import("../pages/Courses"));
 const CourseDetail = lazy(() => import("../pages/CourseDetail"));
 const Resources = lazy(() => import("../components/course/Resources"));
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
               { path: "payment", element: SuspenseWrapper(<MyPayments />) },
               {
                 path: "editpassword",
-                element: SuspenseWrapper(<EditPassword />),
+                element: SuspenseWrapper(<ChangePasswordForm />),
               },
             ],
           },

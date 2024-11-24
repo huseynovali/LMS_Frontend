@@ -17,7 +17,7 @@ function Navbar({
       </button>
       <div></div>
       <div className="flex gap-x-2">
-        {role === "student" && <Notification />}
+        {role == "student" && <Notification />}
       
         <Profile />
       </div>

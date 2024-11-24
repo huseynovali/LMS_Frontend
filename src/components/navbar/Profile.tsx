@@ -63,8 +63,8 @@ function Profile() {
 
           <div>
             <ul>
-              {role === "student" ||
-                (role === "teacher" && (
+              {role == "student" ||
+                role == "teacher" ? (
                   <li>
                     <Link
                       to={`/${role}/profile/aboutme`}
@@ -76,7 +76,7 @@ function Profile() {
                       </p>
                     </Link>
                   </li>
-                ))}
+                ): null}
 
               <li>
                 <button className="flex items-center gap-x-2 py-3 px-5">
