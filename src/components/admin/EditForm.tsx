@@ -1,24 +1,22 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { accoundData } from "../../fakedata";
-import { fieldInput } from "../../constant/studentFieldInput";
 
-function StudentDetailForm() {
+function EditForm({ data, fieldInput, role }: any) {
   const [editActive, setEditActive] = useState(false);
   const toggleEdit = () => setEditActive((prev) => !prev);
-  const student = accoundData;
+
   const initialValues = {
-    name: student.name || "",
-    surname: student.surname || "",
-    email: student.email || "",
-    phone: student.phone || "",
-    address: student.address || "",
-    university: student.university || "",
-    faculty: student.faculty || "",
-    point: student.point || "",
-    joinDate: student.joinDate || "",
-    image: student.image || "",
+    name: data.name || "",
+    surname: data.surname || "",
+    email: data.email || "",
+    phone: data.phone || "",
+    address: data.address || "",
+    ...(role === "student" && {
+      university: data.university || "",
+      faculty: data.faculty || "",
+      point: data.point || "",
+    }),
   };
 
   const validationSchema = Yup.object({
@@ -27,13 +25,21 @@ function StudentDetailForm() {
     email: Yup.string()
       .email("Email düzgün deyil")
       .required("Email boş ola bilməz"),
-    university: Yup.string().required("Universitet boş ola bilməz"),
-    faculty: Yup.string().required("Fakültə boş ola bilməz"),
-    point: Yup.number().required("Nəticə boş ola bilməz"),
+    phone: Yup.string().required("Telefon boş ola bilməz"),
+    address: Yup.string().required("Ünvan boş ola bilməz"),
+    ...(role === "student" && {
+      university: Yup.string().required("Universitet boş ola bilməz"),
+      faculty: Yup.string().required("Fakültə boş ola bilməz"),
+      point: Yup.number()
+        .min(0, "Nəticə 0-dan kiçik ola bilməz")
+        .max(700, "Nəticə 700-dən böyük ola bilməz")
+        .required("Nəticə boş ola bilməz"),
+    }),
   });
 
   const handleSubmit = (values: any) => {
-    alert("Updated data:", values);
+    console.log("Updated data:", values);
+    console.log("Role:", role);
   };
   return (
     <div>
@@ -106,4 +112,4 @@ function StudentDetailForm() {
   );
 }
 
-export default StudentDetailForm;
+export default EditForm;

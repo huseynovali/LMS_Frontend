@@ -6,19 +6,20 @@ import AuthRouter from "./AuthRouter";
 import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
-import FilialDetail from "../pages/FilialDetail";
 import ChangePasswordForm from "../components/ChangePasswordForm";
 import FilialAdmins from "../pages/FilialAdmins";
+import FilialAdminDetail from "../pages/FilialAdminDetail";
 
 const Account = lazy(() => import("../pages/Account"));
 const AboutMe = lazy(() => import("../components/profile/AboutMe"));
 const MyPayments = lazy(() => import("../components/profile/MyPayments"));
-//const EditPassword = lazy(() => import("../components/profile/EditPassword"));
 const Courses = lazy(() => import("../pages/Courses"));
 const CourseDetail = lazy(() => import("../pages/CourseDetail"));
 const Resources = lazy(() => import("../components/course/Resources"));
 const Absences = lazy(() => import("../components/course/Absences"));
 const Filials = lazy(() => import("../pages/Filials"));
+const FilialDetail = lazy(() => import("../pages/FilialDetail"));
+
 const CoursesStudents = lazy(
   () => import("../components/course/CoursesStudents")
 );
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
           {
             path: "branches",
             element: SuspenseWrapper(<Filials />),
+          },
+          {
+            path: "filialadmin/:id",
+            element: SuspenseWrapper(<FilialAdminDetail />),
           },
           {
             path: "filialsdetail/:id",

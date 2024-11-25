@@ -1,6 +1,6 @@
 import { accoundData } from "../fakedata";
 import ChangePasswordForm from "../components/ChangePasswordForm";
-import StudentDetailForm from "../components/admin/StudentDetailForm";
+import EditForm from "../components/admin/EditForm";
 
 function StudentDetail() {
   const student = accoundData;
@@ -10,7 +10,17 @@ function StudentDetail() {
       console.log("Student deleted");
     }
   };
-
+  const fieldInput = [
+    { id: "name", label: "Ad" },
+    { id: "surname", label: "Soyad" },
+    { id: "email", label: "Email" },
+    { id: "university", label: "Universitet" },
+    { id: "faculty", label: "Fakültə" },
+    { id: "point", label: "Nəticə" },
+    { id: "joinDate", label: "Qoşulma Tarixi" },
+    { id: "phone", label: "Telefon" },
+    { id: "address", label: "Ünvan" },
+  ];
   return (
     <div>
       <div className=" mx-auto p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -36,7 +46,7 @@ function StudentDetail() {
             </button>
           </div>
         </div>
-        <StudentDetailForm />
+        <EditForm data={student} fieldInput={fieldInput} role="student" />
       </div>
       <ChangePasswordForm role="student" id={student.id} />
     </div>

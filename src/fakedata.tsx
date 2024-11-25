@@ -1467,3 +1467,61 @@ export const filials = [
     phone: "+994123456777",
   },
 ];
+
+export const filialAdmins = [
+  {
+    id: 1,
+    name: "Ali",
+    surname: "Hüseynov",
+    fatherName: "Rəşid",
+    email: " ",
+    phone: "+994123456789",
+    address: "Bakı şəhəri, Nizami küçəsi, 123",
+  },
+  {
+    id: 2,
+    name: "Mehmet",
+    surname: "Kaya",
+    fatherName: "Ali",
+    email: " ",
+    phone: "+994123456788",
+    address: "Bakı şəhəri, Nizami küçəsi, 123",
+  },
+
+  {
+    id: 3,
+    name: "Ayşe",
+    surname: "Demir",
+    fatherName: "Mehmet",
+    email: " ",
+    phone: "+994123456787",
+    address: "Bakı şəhəri, Nizami küçəsi, 123",
+  },
+  {
+    id: 4,
+    name: "Fatma",
+    surname: "Öztürk",
+    fatherName: "Mehmet",
+    email: " ",
+    phone: "+994123456786",
+    address: "Gəncə şəhəri, Nizami küçəsi, 123",
+  },
+  {
+    id: 5,
+    name: "David",
+    surname: "Brown",
+    fatherName: "Michael",
+    email: " ",
+    phone: "+994123456785",
+    address: "Gəncə şəhəri, Nizami küçəsi, 123",
+  },
+  {
+    id: 6,
+    name: "Sibel",
+    surname: "Kara",
+    fatherName: "Hasan",
+    email: " ",
+    phone: "+994123456784",
+    address: "Gəncə şəhəri, Nizami küçəsi, 123",
+  },
+];
