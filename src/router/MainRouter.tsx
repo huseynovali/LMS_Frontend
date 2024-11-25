@@ -6,9 +6,7 @@ import AuthRouter from "./AuthRouter";
 import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
-import ChangePasswordForm from "../components/ChangePasswordForm";
-import FilialAdmins from "../pages/FilialAdmins";
-import FilialAdminDetail from "../pages/FilialAdminDetail";
+
 
 const Account = lazy(() => import("../pages/Account"));
 const AboutMe = lazy(() => import("../components/profile/AboutMe"));
@@ -19,7 +17,9 @@ const Resources = lazy(() => import("../components/course/Resources"));
 const Absences = lazy(() => import("../components/course/Absences"));
 const Filials = lazy(() => import("../pages/Filials"));
 const FilialDetail = lazy(() => import("../pages/FilialDetail"));
-
+const ChangePasswordForm = lazy(() => import("../components/ChangePasswordForm"));
+const FilialAdmins = lazy(() => import("../pages/FilialAdmins"));
+const FilialAdminDetail = lazy(() => import("../pages/FilialAdminDetail"));
 const CoursesStudents = lazy(
   () => import("../components/course/CoursesStudents")
 );
