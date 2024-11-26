@@ -2,7 +2,8 @@ import { Navigate, Outlet, useParams } from "react-router-dom";
 
 function PrivateRoute() {
   const isAuthenticated = true;
-  const role = "student";
+  // {student , teacher , admin , superadmin }
+  const role = "superadmin";
   const { role: pathRole } = useParams();
 
   if (!isAuthenticated) {

@@ -3,7 +3,6 @@ import SendEmail from "../components/Login/SendEmail";
 import OtpConfirm from "../components/Login/OtpConfirm";
 import { Navigate, useParams } from "react-router";
 
-
 function LoginAdmin() {
   const { role } = useParams();
 

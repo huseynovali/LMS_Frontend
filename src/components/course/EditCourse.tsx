@@ -77,7 +77,7 @@ function EditCourse({ course }: { course: any }) {
                   type="submit"
                   className="bg-[#3E80F9] text-white p-2 rounded-lg"
                 >
-                  Yadda saxla
+                  Təstiq et !
                 </button>
               </Form>
             </Formik>
