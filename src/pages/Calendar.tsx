@@ -17,11 +17,11 @@ function Calendar() {
   return (
     <div className="w-full  mx-auto   overflow-auto relative">
       <div className="w-[1000px] md:w-full ">
-        <div className=" w-[250px] sticky flex justify-start items-center gap-10 -top-1 left-[0%] my-5 ">
+        <div className=" w-[260px] sticky flex justify-between items-center gap-10 -top-1 left-[0%] my-5 ">
           <button onClick={prevMonth} className="text-gray-500">
             <FaChevronLeft size={24} />
           </button>
-          <h2 className="text-xl font-semibold">
+          <h2 className="text-xl font-semibold w-[200px] text-center">
             {format(currentMonth, "MMMM yyyy", { locale: az })}{" "}
           </h2>
           <button onClick={nextMonth} className="text-gray-500">

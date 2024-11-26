@@ -37,7 +37,6 @@ function TeacherDetail() {
             >
               Sil
             </button>
-
             <button className="px-3 py-2 bg-gray-400 text-white rounded-lg ml-3">
               Blok et !
             </button>

@@ -39,6 +39,7 @@ export function useCalendar(
   };
 
   const generateCalendar = () => {
+    const today = new Date();
     const rows = [];
     let days = [];
     let day = startDate;
@@ -51,7 +52,9 @@ export function useCalendar(
         days.push(
           <div
             key={day.toISOString()}
-            className="h-32 mx-1/2 my-1 overflow-auto flex flex-col items-end justify-start cursor-pointer rounded-lg border p-2"
+            className={`${
+              isSameDay(day, today) ? "bg-[#ced1ff]" : null
+            } h-32 mx-1/2 my-1 overflow-auto flex flex-col items-end justify-start cursor-pointer rounded-lg border p-2`}
           >
             <span>{format(day, "d")}</span>
             {events.map((event) => (
