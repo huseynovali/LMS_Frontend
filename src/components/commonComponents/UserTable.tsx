@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { teacher } from "../types/types";
+import { UserType } from "../../types/types";
 
 function UserTable({
   datapaginate,
   cellClass,
-  role
+  role,
 }: {
   datapaginate: any;
   cellClass: string;
@@ -38,7 +38,7 @@ function UserTable({
           </tr>
         </thead>
         <tbody>
-          {datapaginate.map((user: teacher) => (
+          {datapaginate.map((user: UserType) => (
             <tr
               key={user.id}
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"

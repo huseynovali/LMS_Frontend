@@ -22,12 +22,10 @@ export type student = {
   email: string;
   phone: string;
   address: string;
-  image: null;
   joinDate: string;
   point: number;
   university: string;
   faculty: string;
-  admissionDate: string;
 };
 
 export type teacher = {
@@ -38,9 +36,15 @@ export type teacher = {
   email: string;
   phone: string;
   address: string;
-  image: null;
   filialID: number;
   joinDate: string;
+};
+
+export type UserType = teacher & student;
+
+export type fields = {
+  id: string;
+  label: string;
 };
 
 export type MonthProfitData = {

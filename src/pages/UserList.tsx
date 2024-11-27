@@ -1,12 +1,12 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { allStudents } from "../fakedata";
+import { teachers } from "../fakedata";
 import { useState } from "react";
 
-import CreateStudent from "../components/admin/CreateStudent";
+import CreateTeacher from "../components/admin/CreateTeacher";
 import UserTable from "../components/commonComponents/UserTable";
 
-function Students() {
-  const data = allStudents;
+function UserList() {
+  const data = teachers;
   const listElementCount = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / listElementCount);
@@ -21,12 +21,12 @@ function Students() {
 
   const exportToCSV = () => {
     const headers = ["Ad", "Email", "Telefon", "Ünvan", "Qəbul Tarixi"];
-    const rows = data.map((student) => [
-      `${student.name} ${student.surname}`,
-      student.email,
-      student.phone,
-      student.address,
-      student.admissionDate,
+    const rows = data.map((teacher) => [
+      `${teacher.name} ${teacher.surname}`,
+      teacher.email,
+      teacher.phone,
+      teacher.address,
+      teacher?.joinDate,
     ]);
 
     let csvContent =
@@ -36,7 +36,7 @@ function Students() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "students.csv");
+    link.setAttribute("download", "teachers.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -44,19 +44,19 @@ function Students() {
 
   return (
     <div className="overflow-x-auto">
-      <div className="w-full flex justify-between items-center">
+      <div className="flex justify-between items-center">
         <button
           onClick={exportToCSV}
           className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
         >
           Excel olaraq yüklə
         </button>
-        <CreateStudent />
+        <CreateTeacher />
       </div>
       <UserTable
         datapaginate={datapaginate}
         cellClass={cellClass}
-        role={"student"}
+        role="teacher"
       />
 
       <div className="flex items-center justify-center space-x-2 mt-4">
@@ -86,4 +86,4 @@ function Students() {
   );
 }
 
-export default Students;
+export default UserList;

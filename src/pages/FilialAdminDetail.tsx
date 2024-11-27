@@ -1,17 +1,11 @@
 import EditForm from "../components/admin/EditForm";
 import { filialAdmins } from "../fakedata";
-import ChangePasswordForm from "../components/ChangePasswordForm";
+import ChangePasswordForm from "../components/commonComponents/ChangePasswordForm";
+import { adminFieldInput } from "../constant/fieldInputs";
 
 function FilialAdminDetail() {
   const admin = filialAdmins[0];
-  const fieldInput = [
-    { id: "name", label: "Ad" },
-    { id: "surname", label: "Soyad" },
-    { id: "email", label: "Email" },
-    { id: "joinDate", label: "Qoşulma Tarixi" },
-    { id: "phone", label: "Telefon" },
-    { id: "address", label: "Ünvan" },
-  ];
+
   const deleteAdmin = () => {
     if (confirm("Filial adminini silmək istədiyinizdən əminsiniz?")) {
       console.log("Admin deleted");
@@ -42,7 +36,7 @@ function FilialAdminDetail() {
             </button>
           </div>
         </div>
-        <EditForm data={admin} fieldInput={fieldInput} role="admin" />
+        <EditForm data={admin} fieldInput={adminFieldInput} role="admin" />
       </div>
       <ChangePasswordForm role="admin" id={admin.id} />
     </div>

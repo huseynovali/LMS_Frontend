@@ -1,23 +1,29 @@
-import { accoundData, teachers } from "../fakedata";
-import ChangePasswordForm from "../components/ChangePasswordForm";
+import { teachers } from "../fakedata";
+import ChangePasswordForm from "../components/commonComponents/ChangePasswordForm";
 import EditForm from "../components/admin/EditForm";
+import { teacherFieldInput, studentFieldInput } from "../constant/fieldInputs";
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { fields } from "../types/types";
 
-function TeacherDetail() {
+function UserDetail() {
+  const { roleuser } = useParams();
+  const [fieldInput, setFieldInput] = useState<fields[]>([]);
+  console.log("hello");
   const teacher = teachers[0];
-
-  const deleteStudent = () => {
+  useEffect(() => {
+    if (roleuser == "student") {
+      setFieldInput(studentFieldInput);
+    } else {
+      setFieldInput(teacherFieldInput);
+    }
+  }, []);
+  const deleteUser = () => {
     if (confirm("Tələbəni silmək istədiyinizdən əminsiniz?")) {
       console.log("Student deleted");
     }
   };
-  const fieldInput = [
-    { id: "name", label: "Ad" },
-    { id: "surname", label: "Soyad" },
-    { id: "email", label: "Email" },
-    { id: "joinDate", label: "Qoşulma Tarixi" },
-    { id: "phone", label: "Telefon" },
-    { id: "address", label: "Ünvan" },
-  ];
+
   return (
     <div>
       <div className=" mx-auto p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -32,7 +38,7 @@ function TeacherDetail() {
           </div>
           <div>
             <button
-              onClick={deleteStudent}
+              onClick={deleteUser}
               className="px-3 py-2 bg-red-400 text-white rounded-lg"
             >
               Sil
@@ -49,4 +55,4 @@ function TeacherDetail() {
   );
 }
 
-export default TeacherDetail;
+export default UserDetail;

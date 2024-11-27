@@ -7,7 +7,7 @@ import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
 
-
+const UserDetail = lazy(() => import("../pages/UserDetail"));
 const Account = lazy(() => import("../pages/Account"));
 const AboutMe = lazy(() => import("../components/profile/AboutMe"));
 const MyPayments = lazy(() => import("../components/profile/MyPayments"));
@@ -17,17 +17,16 @@ const Resources = lazy(() => import("../components/course/Resources"));
 const Absences = lazy(() => import("../components/course/Absences"));
 const Filials = lazy(() => import("../pages/Filials"));
 const FilialDetail = lazy(() => import("../pages/FilialDetail"));
-const ChangePasswordForm = lazy(() => import("../components/ChangePasswordForm"));
+const ChangePasswordForm = lazy(
+  () => import("../components/commonComponents/ChangePasswordForm")
+);
 const FilialAdmins = lazy(() => import("../pages/FilialAdmins"));
-const FilialAdminDetail = lazy(() => import("../pages/FilialAdminDetail"));
 const CoursesStudents = lazy(
   () => import("../components/course/CoursesStudents")
 );
 const CreateGroup = lazy(() => import("../pages/CreateGroup"));
 const Students = lazy(() => import("../pages/Students"));
-const StudentDetail = lazy(() => import("../pages/StudentDetail"));
 const Teachers = lazy(() => import("../pages/Teachers"));
-const TeacherDetail = lazy(() => import("../pages/TeacherDetail"));
 const Calendar = lazy(() => import("../pages/Calendar"));
 const AddQuestion = lazy(() => import("../pages/AddQuestion"));
 const Login = lazy(() => import("../pages/Login"));
@@ -53,10 +52,7 @@ const router = createBrowserRouter([
             path: "branches",
             element: SuspenseWrapper(<Filials />),
           },
-          {
-            path: "filialadmin/:id",
-            element: SuspenseWrapper(<FilialAdminDetail />),
-          },
+
           {
             path: "filialsdetail/:id",
             element: SuspenseWrapper(<FilialDetail />),
@@ -89,9 +85,8 @@ const router = createBrowserRouter([
           },
           { path: "create-group", element: SuspenseWrapper(<CreateGroup />) },
           { path: "students", element: SuspenseWrapper(<Students />) },
-          { path: "student/:id", element: SuspenseWrapper(<StudentDetail />) },
           { path: "teachers", element: SuspenseWrapper(<Teachers />) },
-          { path: "teacher/:id", element: SuspenseWrapper(<TeacherDetail />) },
+          { path: ":roleuser/:id", element: SuspenseWrapper(<UserDetail />) },
           { path: "add-question", element: SuspenseWrapper(<AddQuestion />) },
           { path: "post/:id", element: SuspenseWrapper(<PostDetail />) },
           { path: "filialadmins", element: SuspenseWrapper(<FilialAdmins />) },

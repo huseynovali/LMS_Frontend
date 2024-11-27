@@ -1,18 +1,19 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { hasPermission } from "../../hooks/hasPermision";
 
 function EditForm({ data, fieldInput, role }: any) {
   const [editActive, setEditActive] = useState(false);
   const toggleEdit = () => setEditActive((prev) => !prev);
-
+  console.log(hasPermission(role, "extraField:comments"));
   const initialValues = {
     name: data.name || "",
     surname: data.surname || "",
     email: data.email || "",
     phone: data.phone || "",
     address: data.address || "",
-    ...(role === "student" && {
+    ...(hasPermission(role, "extraField:comments") && {
       university: data.university || "",
       faculty: data.faculty || "",
       point: data.point || "",
@@ -27,7 +28,7 @@ function EditForm({ data, fieldInput, role }: any) {
       .required("Email boş ola bilməz"),
     phone: Yup.string().required("Telefon boş ola bilməz"),
     address: Yup.string().required("Ünvan boş ola bilməz"),
-    ...(role === "student" && {
+    ...(hasPermission(role, "extraField:comments") && {
       university: Yup.string().required("Universitet boş ola bilməz"),
       faculty: Yup.string().required("Fakültə boş ola bilməz"),
       point: Yup.number()
@@ -50,7 +51,7 @@ function EditForm({ data, fieldInput, role }: any) {
       >
         <Form>
           <div className="my-5 grid grid-cols-6 gap-4">
-            {fieldInput.map(({ id, label }) => (
+            {fieldInput.map(({ id, label }: { id: string; label: string }) => (
               <div
                 key={id}
                 className="col-span-6 sm:col-span-3 md:col-span-3 lg:col-span-2"

@@ -12,7 +12,13 @@ const initialValues = {
 
 const CreateGroupSchema = yup.object().shape({
   name: yup.string().required("Ad daxil edin"),
-  time: yup.string().required("Vaxt daxil edin"),
+  time: yup
+    .string()
+    .required("Vaxt daxil edin")
+    .matches(
+      /^([01]\d|2[0-3]):[0-5]\d-([01]\d|2[0-3]):[0-5]\d$/,
+      "Vaxt düzgün formatda olmalıdır (məsələn, 14:00-15:00)"
+    ),
   startDate: yup.date().required("Başlama tarixini daxil edin"),
   endDate: yup
     .date()
@@ -67,7 +73,7 @@ function CreateGroupForm() {
                   type="text"
                   id="time"
                   name="time"
-                  placeholder="12-00 , 14-00  ..."
+                  placeholder="12:00-14:30 , 14:00-15:30  ..."
                   className="mt-1 p-2 border rounded w-full"
                 />
                 <ErrorMessage

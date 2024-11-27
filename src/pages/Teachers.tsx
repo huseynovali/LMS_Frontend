@@ -1,8 +1,9 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { teachers } from "../fakedata";
 import { useState } from "react";
-import UserTable from "../components/UserTable";
+
 import CreateTeacher from "../components/admin/CreateTeacher";
+import UserTable from "../components/commonComponents/UserTable";
 
 function Teachers() {
   const data = teachers;
@@ -52,7 +53,11 @@ function Teachers() {
         </button>
         <CreateTeacher />
       </div>
-      <UserTable datapaginate={datapaginate} cellClass={cellClass} role="teacher" />
+      <UserTable
+        datapaginate={datapaginate}
+        cellClass={cellClass}
+        role="teacher"
+      />
 
       <div className="flex items-center justify-center space-x-2 mt-4">
         <button

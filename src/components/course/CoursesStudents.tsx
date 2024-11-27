@@ -5,11 +5,12 @@ import AddAbsences from "./AddAbsences";
 import { useParams } from "react-router";
 import AddStudent from "./AddStudent";
 import RemoveStudent from "./RemoveStudent";
+import { hasPermission } from "../../hooks/hasPermision";
 
 function CoursesStudents() {
   const datesPerPage = 5;
   const [currentPage, setCurrentPage] = useState(0);
-  const { role } = useParams<{ role: string }>();
+  const { role } = useParams<{ role: "admin" | "student" | "teacher" }>();
   const [checkedStudent, setCheckedStudent] = useState<number | null>(null);
   const allDates = Array.from(
     new Set(
@@ -40,11 +41,17 @@ function CoursesStudents() {
           Tələbələr{" "}
           <span className="ml-5 text-xl">{sortedStudents.length}</span>{" "}
         </h1>
-        {role == "teacher" && <AddAbsences allDates={allDates} />}
-        {role == "admin" && checkedStudent == null && <AddStudent />}
-        {role == "admin" && checkedStudent !== null && (
-          <RemoveStudent checkedStudent={checkedStudent} />
+        {role && hasPermission(role, "add:comments") && (
+          <AddAbsences allDates={allDates} />
         )}
+        {role &&
+          hasPermission(role, "add:owncomments") &&
+          checkedStudent == null && <AddStudent />}
+        {role &&
+          hasPermission(role, "add:owncomments") &&
+          checkedStudent !== null && (
+            <RemoveStudent checkedStudent={checkedStudent} />
+          )}
       </div>
       <div className="bg-white rounded-lg overflow-auto mt-5">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 overflow-auto">
@@ -67,17 +74,21 @@ function CoursesStudents() {
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               >
                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex relative">
-                  {role == "admin" && <div className="w-10 h-5"></div>}
+                  {role && hasPermission(role, "update:comments") && (
+                    <div className="w-10 h-5"></div>
+                  )}
                   <div className="absolute">
-                    {!checkedStudent && role == "admin" && (
-                      <input
-                        type="checkbox"
-                        name=""
-                        id=""
-                        className="mr-2 h-[20px] w-[20px] "
-                        onChange={() => setCheckedStudent(student.id)}
-                      />
-                    )}
+                    {!checkedStudent &&
+                      role &&
+                      hasPermission(role, "update:comments") && (
+                        <input
+                          type="checkbox"
+                          name=""
+                          id=""
+                          className="mr-2 h-[20px] w-[20px] "
+                          onChange={() => setCheckedStudent(student.id)}
+                        />
+                      )}
                     {checkedStudent === student.id && (
                       <input
                         type="checkbox"
@@ -94,45 +105,28 @@ function CoursesStudents() {
 
                 {paginatedDates.map((date) => {
                   const absence = student.absences.find((a) => a.date === date);
+                  let absenceClass = "bg-gray-300";
+                  let absenceText = "-";
+                  if (absence?.absence === true) {
+                    absenceClass = "bg-red-400";
+                    absenceText = "i/e";
+                  } else if (absence?.absence === false) {
+                    absenceClass = "bg-green-400";
+                    absenceText = "q/b";
+                  }
                   return (
                     <td key={date} className="text-center">
-                      {role == "admin" && (
+                      {role && hasPermission(role, "absence:comments") && (
                         <button
                           onClick={() =>
                             changeAbsence(student.id, date, !absence?.absence)
                           }
+                          disabled={hasPermission(role, "absenceadd:comments")}
                           title="Davamiyyəti dəyiş"
-                          className={`w-12 h-8 text-center py-1 ${
-                            absence?.absence === true
-                              ? "bg-red-400"
-                              : absence?.absence === false
-                              ? "bg-green-400"
-                              : "bg-gray-300"
-                          } text-white rounded-lg mx-auto`}
+                          className={`${absenceClass} w-12 h-8 text-center py-1  text-white rounded-lg mx-auto`}
                         >
-                          {absence?.absence === true
-                            ? "i/e"
-                            : absence?.absence === false
-                            ? "q/b"
-                            : "-"}
+                          {absenceText}
                         </button>
-                      )}
-                      {role == "teacher" && (
-                        <div
-                          className={`w-12 h-8 text-center py-1 ${
-                            absence?.absence === true
-                              ? "bg-red-400"
-                              : absence?.absence === false
-                              ? "bg-green-400"
-                              : "bg-gray-300"
-                          } text-white rounded-lg mx-auto`}
-                        >
-                          {absence?.absence === true
-                            ? "i/e"
-                            : absence?.absence === false
-                            ? "q/b"
-                            : "-"}
-                        </div>
                       )}
                     </td>
                   );

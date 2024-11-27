@@ -15,7 +15,7 @@ function FilialAdmins() {
         {data.map((item) => (
           <li key={item.id}>
             <Link
-              to={`/admin/filialadmin/${item.id}`}
+              to={`/admin/admin/${item.id}`}
               className="border  rounded-lg px-3 py-2 border-gray-200 my-1 block"
             >
               <span className="text-lg font-semibold">{item.name}</span>

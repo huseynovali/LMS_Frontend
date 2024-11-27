@@ -21,7 +21,7 @@ function EditCourse({ course }: { course: any }) {
       </button>
       {open && (
         <div className="absolute w-full md:w-[80%] md:inset-x-[calc(50%_-_40%)] z-30 lg:max-w-[500px] inset-x-0  lg:inset-[calc(50%_-_250px)] bg-white border shadow-lg rounded-lg ">
-          <div className=" flex border border-b py-3 px-2">
+          <div className=" flex  border-b py-3 px-2 rounded-t-lg">
             <h1>Redakde et</h1>
             <button
               onClick={() => {
