@@ -6,24 +6,21 @@ const Roles = {
     "create:comments",
     "add:owncomments",
     "absence:comments",
-    
     "read:comments",
     "update:comments",
-    "delete:comments",
+    "delete:owncomments",
   ],
-  student: ["read:comments","extraField:comments"],
+  student: ["read:comments", "extraField:comments", "notification:owncomments","profile:comments"],
   teacher: [
     "add:comments",
     "absence:comments",
     "absenceadd:comments",
     "read:comments",
     "delete:comments",
+    "profile:comments",
   ],
 } as const;
 
-export function hasPermission(
-  role: Role,
-  permission: Permission
-) {
+export function hasPermission(role: Role, permission: Permission) {
   return (Roles[role] as readonly Permission[]).includes(permission);
 }

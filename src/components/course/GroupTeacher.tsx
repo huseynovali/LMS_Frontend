@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import useDebonce from "../../hooks/useDebonce";
 import { teachers } from "../../fakedata";
+import { hasPermission } from "../../hooks/hasPermision";
 
 interface Teacher {
   id: number;
@@ -11,7 +12,10 @@ interface Teacher {
   phone: string;
 }
 
-function GroupTeacher({ course, role }: Readonly<{ course: any; role: string }>) {
+function GroupTeacher({
+  course,
+  role,
+}: Readonly<{ course: any; role: "student" | "teacher" | "admin" }>) {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
   const [searchTeacher, setSearchTeacher] = useState<Teacher[]>([]);
@@ -28,7 +32,6 @@ function GroupTeacher({ course, role }: Readonly<{ course: any; role: string }>)
       setSearchTeacher([]);
     }
   }, [debouncedSearch]);
-  
 
   const addTeacherFunc = (teacher: Teacher) => {
     course.teacher = teacher;
@@ -37,7 +40,7 @@ function GroupTeacher({ course, role }: Readonly<{ course: any; role: string }>)
 
   return (
     <div>
-      {role === "admin" && course?.teacher ? (
+      {role && hasPermission(role, "delete:owncomments") && course?.teacher ? (
         <button
           className="px-3 py-2 bg-red-400 text-white rounded-lg"
           onClick={() => setShow(false)}

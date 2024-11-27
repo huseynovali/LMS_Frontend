@@ -4,11 +4,12 @@ import { accoundData } from "../../fakedata";
 import { BsGear } from "react-icons/bs";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { Link, useParams } from "react-router-dom";
+import { hasPermission } from "../../hooks/hasPermision";
 
 function Profile() {
   const [profileOpen, setProfileOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
-  const { role } = useParams();
+  const { role } = useParams<{ role: "student" | "admin" | "teacher" }>();
   useEffect(() => {
     if (profileOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -63,20 +64,19 @@ function Profile() {
 
           <div>
             <ul>
-              {role == "student" ||
-                role == "teacher" ? (
-                  <li>
-                    <Link
-                      to={`/${role}/profile/aboutme`}
-                      className="flex items-center gap-x-2 py-3 px-5"
-                    >
-                      <BsGear size={20} className="text-[#487FFF]" />
-                      <p className="text-[15px] font-medium text-[#667797]">
-                        Accound Setting
-                      </p>
-                    </Link>
-                  </li>
-                ): null}
+              {role && hasPermission(role, "profile:comments") ? (
+                <li>
+                  <Link
+                    to={`/${role}/profile/aboutme`}
+                    className="flex items-center gap-x-2 py-3 px-5"
+                  >
+                    <BsGear size={20} className="text-[#487FFF]" />
+                    <p className="text-[15px] font-medium text-[#667797]">
+                      Accound Setting
+                    </p>
+                  </Link>
+                </li>
+              ) : null}
 
               <li>
                 <button className="flex items-center gap-x-2 py-3 px-5">

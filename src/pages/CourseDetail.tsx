@@ -5,10 +5,11 @@ import GroupTeacher from "../components/course/GroupTeacher";
 import EditCourse from "../components/course/EditCourse";
 import { tabs } from "../constant/courseDetailTabs";
 import MainContainer from "../components/CustomComponent/MainContainer";
+import { hasPermission } from "../hooks/hasPermision";
 
 function CourseDetail() {
   const { id } = useParams();
-  const { role } = useParams<{ role: "student" | "teacher" | "admin" }>();
+  const { role } = useParams<{ role: "student" | "admin" | "teacher" }>();
   const course = studentCourseData.find((course) => course.id === Number(id));
   const data: {
     [key: string]: {
@@ -31,7 +32,7 @@ function CourseDetail() {
           <div className="flex flex-col justify-center items-end">
             {" "}
             <div>
-              {role == "admin" && (
+              {role && hasPermission(role,"delete:owncomments") && (
                 <div className="flex">
                   <button className="px-5 py-2 rounded-lg bg-red-400 text-white">
                     Sil
@@ -42,7 +43,7 @@ function CourseDetail() {
             </div>
             <p className="text-[#7585A5] my-2">{course?.days}</p>
             <p className="text-[#7585A5] my-2">{course?.time}</p>
-            {role == "admin" && <GroupTeacher course={course} role={role} />}
+            {role && hasPermission(role,"delete:owncomments") && <GroupTeacher course={course} role={role} />}
           </div>
         </div>
         <div className="px-3 overflow-auto mt-5 -mb-5">
