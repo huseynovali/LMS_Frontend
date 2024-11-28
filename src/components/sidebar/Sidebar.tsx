@@ -18,7 +18,7 @@ function Sidebar({
   const location = useLocation();
   const { pathname } = location;
   const nav = pathname.split("/");
-  const { student, teacher, admin,superadmin } = sidebarLinksData;
+  const { student, teacher, admin, superadmin } = sidebarLinksData;
   const [toggle, setToggle] = useState<string | null>(null);
   useEffect(() => {
     if (params.role === "student") {
@@ -27,7 +27,7 @@ function Sidebar({
       setSidebarLinks(teacher);
     } else if (params.role === "admin") {
       setSidebarLinks(admin);
-    }else if (params.role === "superadmin") {
+    } else if (params.role === "superadmin") {
       setSidebarLinks(superadmin);
     }
   }, [params.role]);
