@@ -106,7 +106,7 @@ function Sidebar({
                   </div>
                 ) : (
                   <Link
-                    to={link.link || "#"}
+                    to={link.link ?? "#"}
                     className={`${
                       nav.includes(link.idName)
                         ? "text-white bg-[#3E80F9] "
