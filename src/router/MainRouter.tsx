@@ -6,6 +6,7 @@ import AuthRouter from "./AuthRouter";
 import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
+import Supervisor from "../pages/Supervisor";
 
 const UserDetail = lazy(() => import("../pages/UserDetail"));
 const Account = lazy(() => import("../pages/Account"));
@@ -105,6 +106,17 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <Page404 />,
+  },
+
+  {
+    path: "/supervisor",
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: "",
+        element: <Supervisor />,
+      },
+    ],
   },
 ]);
 

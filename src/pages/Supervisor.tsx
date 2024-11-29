@@ -1,8 +1,5 @@
-
 function Supervisor() {
-  return (
-    <div>Supervisor</div>
-  )
+  return <div>Supervisor</div>;
 }
 
-export default Supervisor
+export default Supervisor;

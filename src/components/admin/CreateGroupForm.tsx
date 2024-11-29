@@ -4,7 +4,7 @@ import * as yup from "yup";
 
 const initialValues = {
   name: "",
-  time: "",
+  startTime: "",
   startDate: "",
   endDate: "",
   days: "",
@@ -26,6 +26,16 @@ const CreateGroupSchema = yup.object().shape({
     .min(
       yup.ref("startDate"),
       "Bitmə tarixi başlama tarixindən sonra olmalıdır"
+    )
+    .test(
+      "max-date-difference",
+      "Bitmə tarixi başlama tarixindən maksimum 1 il sonra olmalıdır",
+      function (value) {
+        const { startDate } = this.parent; 
+        if (!value || !startDate) return true; 
+        const diffInYears = (new Date(value).getTime() - new Date(startDate).getTime()) / (1000 * 60 * 60 * 24 * 365);
+        return diffInYears <= 1; 
+      }
     ),
   days: yup
     .string()
@@ -33,6 +43,7 @@ const CreateGroupSchema = yup.object().shape({
     .min(1, "Gün daxil edin")
     .max(7, "Gün daxil edin"),
 });
+
 function CreateGroupForm() {
   const [showCustomDays, setShowCustomDays] = useState(false);
   return (
