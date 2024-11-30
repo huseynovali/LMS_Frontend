@@ -1,3 +1,5 @@
+
+
 export type Role = keyof typeof Roles;
 type Permission = (typeof Roles)[Role][number];
 
@@ -22,5 +24,8 @@ const Roles = {
 } as const;
 
 export function hasPermission(role: Role, permission: Permission) {
+  if (!Roles[role]) {
+    throw new Error(`Role ${role} not found`);
+  }
   return (Roles[role] as readonly Permission[]).includes(permission);
 }
