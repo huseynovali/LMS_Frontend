@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import Page404 from "../pages/Page404";
 import Loading from "../pages/Loading";
 import Supervisor from "../pages/Supervisor";
+import ClientDetail from "../components/supervisor/ClientDetail";
 
 const UserDetail = lazy(() => import("../pages/UserDetail"));
 const Account = lazy(() => import("../pages/Account"));
@@ -103,20 +104,24 @@ const router = createBrowserRouter([
       { path: ":role", element: SuspenseWrapper(<LoginAdmin />) },
     ],
   },
-  {
-    path: "*",
-    element: <Page404 />,
-  },
 
   {
     path: "/supervisor",
     element: <PrivateRoute />,
     children: [
       {
-        path: "",
+        index: true,
         element: <Supervisor />,
       },
+      {
+        path: "client/:id",
+        element: <ClientDetail />,
+      }
     ],
+  },
+  {
+    path: "*",
+    element: <Page404 />,
   },
 ]);
 

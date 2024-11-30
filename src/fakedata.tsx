@@ -1525,3 +1525,25 @@ export const filialAdmins = [
     address: "Gəncə şəhəri, Nizami küçəsi, 123",
   },
 ];
+
+
+export const clients = [
+  {
+    id: 1,
+    name: "Magistr Ol",
+
+  },
+  {
+    id: 2,
+    name:"Zeka Kursları"
+  },
+  {
+    id: 3,
+    name: "Dərs Evi"
+  },
+  {
+    id: 4,
+    name: "Dərslik"
+  },
+  
+]
